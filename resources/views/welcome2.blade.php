@@ -14,6 +14,8 @@
 </head>
 <body>
    
+    {{ $errors->any() }}
+
     @include('layouts.navbar')
     <div class="w-full relative ">
         <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80" alt="bg.png" class="w-full h-96 object-cover">
@@ -72,18 +74,18 @@
                 <h1 class="text-center mt-4 text-md">Asus Gaming Laptop</h1>
             </div> 
             <div class=" xs:mb-6 cursor-pointer ">
-                <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="rounded h-96 object-cover w-full hover:animate-bounce duration-200">
+                <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" class="rounded h-96 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
                 <h1 class="text-center mt-4 text-md">Gaming Keyboard</h1>
 
             </div>
 
             <div class="xs:mb-6 cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1928&q=80" alt="" class="rounded h-96 object-cover w-full hover:animate-ping">
+                <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1928&q=80" alt="" class="rounded h-96 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
                 <h1 class="text-center mt-4 text-md">Logitech Mouse</h1>
             </div>
 
             <div class=" xs:mb-6 cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80" alt="" class="rounded h-96 object-cover w-full hover:animate-pulse">
+                <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80" alt="" class="rounded h-96 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
                 <h1 class="text-center mt-4 text-md">IOS Headphone</h1>
 
             </div>
