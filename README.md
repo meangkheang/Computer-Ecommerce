@@ -21,12 +21,12 @@
 ## Install Boostrap with laravel
 
 ```
-1. composer require laravel/ui
+1. clone this repos from forked
 
-2. php artisan ui bootstrap    or     php artisan ui bootstrap --auth
+2. type " npm install " in any teminal you had
 
-3. npm install
+3. npm run dev & php artisan serve
 
-4. npm run dev (you might want to re-run this command in case Laravel mix error. )
+4. that's work!!
 
 ```
