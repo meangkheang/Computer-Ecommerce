@@ -23,7 +23,7 @@
 ```
 1. clone this repos from forked
 
-2. type " npm install " in any teminal you had
+2. type "composer install &&  npm install " in any teminal you had
 
 3. npm run dev & php artisan serve
 
