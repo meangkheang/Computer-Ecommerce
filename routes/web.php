@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,33 +17,25 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function (Request $request) {
-
-    $validate = $request->validate([
-
-    ]);
-
     return view('welcome2');
 });
 
-Route::get('/products',function(){
-    return view('products.home');
+Route::get('/products/order-list', function (Request $request) {
+    return view('products.orders');
 });
 
-// Route::get('/signup',function(){
-//     return view('auth.signup');
-// });
-// Route::get('/signin',function(){
-//     return view('auth.signin');
-// });
+
+
 
 
 
 //manage signin Routes
 Route::get('/auth/signin', function(){
-    return view('auth.signin')->with('result',0);
+    return view('auth.signin');
 });
 Route::post('/auth/signin',[UserController::class,'store2']);
 
 
 
 Route::resource('/auth', UserController::class);
+Route::resource('/products', SearchController::class);

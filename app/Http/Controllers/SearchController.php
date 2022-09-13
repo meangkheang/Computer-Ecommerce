@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('auth.signup');
+        
     }
 
     /**
@@ -35,34 +34,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-
-        $validated = $request->validate([
-            'name' => 'required|min:6>',
-            'email' => 'required|min:6|email',
-            'password' => 'required|min:6|required_with:confirm_password|same:confirm_password',
-            'confirm_password' =>'required|min:6'
-        ]); 
-        User::create($input);
-
-        return redirect('/')->with('user',$input['name']);
-
-        //dd(1);  
+        dd(1);
     }
 
-    public function store2(Request $request)
-    {
-        $input = $request->all();
-        
-        $validated = $request->validate([
-            'email' => 'required|min:6',
-            'password' => 'required|min:6',
-        ]); 
-
-        $user = User::where('email',$input['email'])->where('password',$input['password'])->first();
-        
-        return redirect('/');
-    }
     /**
      * Display the specified resource.
      *
