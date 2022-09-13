@@ -14,12 +14,10 @@
 </head>
 <body>
    
-    
+    {{ $errors->any() }}
 
     @include('layouts.navbar')
-    <div class="relative text-cente">
-        </div>
-
+    <div class="w-full relative ">
         <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80" alt="bg.png" class="w-full h-96 object-cover">
         <div class="absolute top-20  text-black left-80 xs:left-auto xs:translate-x-5 xs:font-thin">
             <h1 class="uppercase text-red-500 font-extralight tracking-thin">Summer Sale</h1>
@@ -117,8 +115,8 @@
         </div>
     </div>
 
-    <div class="w-full font-bold text-center text-2xl p-8 hidden">
-        <h1 class="text-center mb-10">Contact</h1>
+    <div class="w-full font-bold text-center text-2xl p-8 ">
+        <h1 class="text-center mb-10">Feedbacks</h1>
 
         <div class="flex gap-8 justify-center flex-wrap">
             <div class="p-4 shadow-lg w-[16rem]">
@@ -172,8 +170,7 @@
         </div>
         
     </div>
-
-    @include('layouts.contact')
+   
     @include('layouts.footer')
   
 </body>

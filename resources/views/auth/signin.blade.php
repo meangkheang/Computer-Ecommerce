@@ -59,7 +59,7 @@
         <div class="text-grey-dark mt-6">
             Create a new account 
             <a class="no-underline border-b border-blue text-blue" href="/auth/">
-                Sign up
+                Log in
             </a>.
         </div>
     </form>

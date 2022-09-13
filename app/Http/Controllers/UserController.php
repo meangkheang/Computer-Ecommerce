@@ -39,9 +39,9 @@ class UserController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|min:6>',
-            'email' => 'required|min:6|email',
-            'password' => 'required|min:6|required_with:confirm_password|same:confirm_password',
-            'confirm_password' =>'required|min:6'
+            'email' => 'required|min:10|email',
+            'password' => 'required|min:10|required_with:confirm_password|same:confirm_password',
+            'confirm_password' =>'required|min:10'
         ]); 
         User::create($input);
 
@@ -55,12 +55,10 @@ class UserController extends Controller
         $input = $request->all();
         
         $validated = $request->validate([
-            'email' => 'required|min:6',
-            'password' => 'required|min:6',
+            'email' => 'required|min:10',
+            'password' => 'required|min:10',
         ]); 
 
-        $user = User::where('email',$input['email'])->where('password',$input['password'])->first();
-        
         return redirect('/');
     }
     /**
