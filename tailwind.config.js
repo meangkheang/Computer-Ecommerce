@@ -11,7 +11,9 @@ module.exports = {
             main: ["Poppins", "sans-serif"], // Ensure fonts with spaces have " " surrounding it.
         },
         screens: {
-            xs: { max: "600px" },
+            xs: { min: "240px" },
+            // => @media (min-width: 320px) { ... }
+
             sm: "640px",
             // => @media (min-width: 640px) { ... }
 
