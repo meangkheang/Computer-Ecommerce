@@ -12,6 +12,17 @@
     }
 }
 @layer utilities {
+    body::-webkit-scrollbar {
+        width: 15px;
+    }
+    body::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 100vw;
+        border: 3px solid #f6f7ed;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+        background: #595957;
+    }
     .scrollbar::-webkit-scrollbar {
         height: 15px;
     }

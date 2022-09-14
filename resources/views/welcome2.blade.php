@@ -19,12 +19,12 @@
     @include('layouts.navbar')
     {{-- Slideshow --}}
     <div class="w-full relative">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"
+        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
             alt="bg.png" class="w-full h-96 object-cover">
         <div class="absolute top-20 text-black xs:translate-x-5 xs:font-thin xs:left-8 md:left-36 xl:left-80">
             <h1 class="uppercase text-red-500 font-extralight tracking-thin">Summer Sale</h1>
-            <h1 class="text-4xl uppercase font-bold">Get up to </h1>
-            <h1 class="text-7xl uppercase font-extrabold">15%</h1><br>
+            <h1 class="text-4xl uppercase font-bold text-white">Get up to </h1>
+            <h1 class="text-7xl uppercase font-extrabold text-red-600">15%</h1><br>
             <a href="products">
                 <button class="px-8 py-3 bg-black rounded-xl text-white shadow hover:text-red-600">Shop Now</button>
             </a>
@@ -37,27 +37,30 @@
             Products
         </h1>
         <div class="grid grid-cols-2 gap-4 mx-5 my-8 sm:mx-20 sm:my-12 lg:m-16 lg:px-32">
-            <div class="col-start-1 row-span-1">
+            <div class="col-start-1 row-span-1 ml-auto">
                 <a href=""><img
-                        src="https://images.unsplash.com/photo-1494621930069-4fd4b2e24a11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
-                        alt="" class="rounded h-full"></a>
+                        src="https://images.unsplash.com/photo-1636211992838-251a43d72ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                        alt="" class="rounded h-full w-full object-cover"></a>
             </div>
-            <div class="grid col-start-2 grid-cols-2 gap-4">
-                <div class="col-span-2">
+            <div class="grid grid-rows-2 gap-4">
+                <div class="">
                     <a href=""><img
                             src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                            alt="" class="rounded"></a>
+                            alt="" class="rounded w-full h-full object-cover"></a>
                 </div>
-                <div class="">
-                    <a href=""><img
-                            src="https://images.unsplash.com/photo-1580236176063-bea7f16aec30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=672&q=80"
-                            alt="" class="rounded h-full"></a>
+                <div class="grid grid-cols-2 gap-4 w-full">
+                    <div class="">
+                        <a href=""><img
+                                src="https://images.unsplash.com/photo-1580236176063-bea7f16aec30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=672&q=80"
+                                alt="" class="rounded h-full w-full"></a>
+                    </div>
+                    <div class="">
+                        <a href=""><img
+                                src="https://images.unsplash.com/photo-1607677686474-ad91fc94f5ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=680&q=80"
+                                alt="" class="rounded h-full w-full"></a>
+                    </div>
                 </div>
-                <div class="">
-                    <a href=""><img
-                            src="https://images.unsplash.com/photo-1607677686474-ad91fc94f5ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=680&q=80"
-                            alt="" class="rounded h-full"></a>
-                </div>
+
             </div>
         </div>
     </div>
@@ -75,23 +78,29 @@
                 condimentum erat. </p>
         </div>
         <div class="swiper">
-            <div class="flex shrink-0 grow gap-8 mx-5 my-10 lg:mx-48 overflow-x-scroll sm:mx-14 scrollbar "
+            <div class="flex shrink-0 grow gap-8 mx-5 my-10 lg:mx-48 overflow-x-scroll sm:mx-14 scrollbar lg:p-5"
                 id="slider">
                 <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
                     <a href="/products/">
-                        <img src="https://images.unsplash.com/photo-1494621930069-4fd4b2e24a11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
+                        <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                             alt=""
                             class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75 ">
                     </a>
-                    <h1 class="text-center mt-4 text-md">Asus Gaming Laptop</h1>
+                    <div class="flex flex-col justify-between items-start">
+                        <h1 class="text-center mt-4 text-md pl-4">Asus Gaming Laptop</h1>
+                        <span class="text-center mt-2 text-md pl-4 text-red-500">20%</span>
+                    </div>
                 </div>
 
 
                 <div class=" xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4">
-                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                    <img src="https://images.unsplash.com/photo-1626958390898-162d3577f293?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
-                    <h1 class="text-center mt-4 text-md">Gaming Keyboard</h1>
+                    <div class="flex flex-col justify-between items-start">
+                        <h1 class="text-center mt-4 text-md pl-4">Gaming Keyboard</h1>
+                        <span class="text-center mt-2 text-md pl-4 text-red-500">20%</span>
+                    </div>
 
                 </div>
 
@@ -99,7 +108,10 @@
                     <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1928&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
-                    <h1 class="text-center mt-4 text-md">Logitech Mouse</h1>
+                    <div class="flex flex-col justify-between items-start">
+                        <h1 class="text-center mt-4 text-md pl-4">Logitech Mouse</h1>
+                        <span class="text-center mt-2 text-md pl-4 text-red-500">20%</span>
+                    </div>
                 </div>
 
 
@@ -107,15 +119,23 @@
                     <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
-                    <h1 class="text-center mt-4 text-md">IOS Headphone</h1>
+                    <div class="flex flex-col justify-between items-start">
+                        <h1 class="text-center mt-4 text-md pl-4">IOS Headphone</h1>
+                        <span class="text-center mt-2 text-md pl-4 text-red-500">20%</span>
+                    </div>
 
                 </div>
 
-                <div class=" xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
-                    <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
+                <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
+                    <img src="https://images.unsplash.com/photo-1644767479973-a053733ef283?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
-                    <h1 class="text-center mt-4 text-md">IOS Headphone</h1>
+                    <div class="flex flex-col justify-between items-start">
+                        <h1 class="text-center mt-4 text-md pl-4">Razer Microphone</h1>
+                        <span class="text-center mt-2 text-md pl-4 text-red-500">20%</span>
+                    </div>
+
+
 
                 </div>
             </div>
@@ -150,7 +170,7 @@
         <h1 class="text-center mb-10">Feedbacks</h1>
 
         <div class="flex gap-8 justify-center flex-wrap">
-            <div class="p-4 shadow-lg sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
+            <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/50/9e/c0/509ec0cb3a7f1d47d67afc81a8751f70.jpg" alt=""
                         class="rounded-full sm:w-24 mb-4 mx-auto w-14">
@@ -178,7 +198,7 @@
                 </div>
 
             </div>
-            <div class="p-4 shadow-lg sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
+            <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/97/d7/8b/97d78bd627c7cb5935140fbb4f312a31.jpg" alt=""
                         class="rounded-full sm:w-24 mb-4 mx-auto w-14">
@@ -207,7 +227,7 @@
 
             </div>
 
-            <div class="p-4 shadow-lg sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
+            <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/d1/00/e6/d100e654ce2420bd44e343351f262542.jpg" alt=""
                         class="rounded-full sm:w-24 mb-4 mx-auto w-14">
@@ -236,7 +256,7 @@
 
             </div>
 
-            <div class="p-4 shadow-lg sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
+            <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/a8/82/15/a88215c61f2f631b47dcf2adf12b66c3.jpg" alt=""
                         class="rounded-full sm:w-24 mb-4 mx-auto w-14">
