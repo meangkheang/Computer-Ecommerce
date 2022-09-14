@@ -75,8 +75,9 @@
                 condimentum erat. </p>
         </div>
         <div class="swiper">
-            <div class="flex shrink-0 grow gap-8 mx-5 my-10 lg:mx-48 overflow-x-scroll sm:mx-14 scrollbar ">
-                <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 "id="slider">
+            <div class="flex shrink-0 grow gap-8 mx-5 my-10 lg:mx-48 overflow-x-scroll sm:mx-14 scrollbar "
+                id="slider">
+                <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
                     <a href="/products/">
                         <img src="https://images.unsplash.com/photo-1494621930069-4fd4b2e24a11?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
                             alt=""
@@ -86,7 +87,7 @@
                 </div>
 
 
-                <div class=" xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 "id="slider">
+                <div class=" xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4">
                     <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
@@ -94,7 +95,7 @@
 
                 </div>
 
-                <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 " id="slider">
+                <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
                     <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1928&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
@@ -102,7 +103,7 @@
                 </div>
 
 
-                <div class=" xs:mb-6 cursor-pointer shrink-0  w-1/2 sm:w-1/4 " id="slider">
+                <div class=" xs:mb-6 cursor-pointer shrink-0  w-1/2 sm:w-1/4 ">
                     <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
@@ -110,7 +111,7 @@
 
                 </div>
 
-                <div class=" xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 " id="slider">
+                <div class=" xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
                     <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80"
                         alt=""
                         class="rounded lg:h-96 h-40 object-cover w-full hover:scale-105 transition-all duration-200 delay-75">
@@ -271,33 +272,34 @@
 </body>
 
 <script>
-    const sliders = document.querySelectorAll("#slider");
+    const sliders = document.querySelector("#slider");
+    console.log(sliders);
     let isDown = false;
     let startX;
     let scrollLeft;
-    for (let i = 0; i < sliders.length; i++) {
-        sliders[i].addEventListener("mousedown", (e) => {
-            isDown = true;
-            sliders[i].classList.add("active");
-            startX = e.pageX - sliders[i].offsetLeft;
-            scrollLeft = sliders[i].scrollLeft;
-        });
-        sliders[i].addEventListener("mouseleave", (e) => {
-            isDown = false;
-            sliders[i].classList.remove("active");
-        });
-        sliders[i].addEventListener("mouseup", (e) => {
-            isDown = false;
-            sliders[i].classList.remove("active");
-        });
-        sliders[i].addEventListener("mousemove", (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - sliders[i].offsetLeft;
-            const walk = (x - startX) * 2; //scroll-fast
-            sliders[i].scrollLeft = scrollLeft - walk;
-        });
-    }
+
+    sliders.addEventListener("mousedown", (e) => {
+        isDown = true;
+        sliders.classList.add("active");
+        startX = e.pageX - sliders.offsetLeft;
+        scrollLeft = sliders.scrollLeft;
+    });
+    sliders.addEventListener("mouseleave", (e) => {
+        isDown = false;
+        sliders.classList.remove("active");
+    });
+    sliders.addEventListener("mouseup", (e) => {
+        isDown = false;
+        sliders.classList.remove("active");
+    });
+    sliders.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - sliders.offsetLeft;
+        const walk = (x - startX) * 1; //scroll-fast
+        sliders.scrollLeft = scrollLeft - walk;
+
+    });
 </script>
 
 </html>
