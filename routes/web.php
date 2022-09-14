@@ -46,3 +46,6 @@ Route::post('/auth/signin',[UserController::class,'store2']);
 
 
 Route::resource('/auth', UserController::class);
+
+//this is welcomepage
+
