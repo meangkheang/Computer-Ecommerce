@@ -293,7 +293,6 @@
 
 <script>
     const sliders = document.querySelector("#slider");
-    console.log(sliders);
     let isDown = false;
     let startX;
     let scrollLeft;
