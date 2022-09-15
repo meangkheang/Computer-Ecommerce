@@ -43,7 +43,7 @@
             <button
                 type="submit"
                 class="w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1 bg-green-400"
-            >Create Account</button>
+            >Sign in</button>
 
             <div class="text-center text-sm text-grey-dark mt-4">
                 By signing up, you agree to the 
