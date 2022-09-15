@@ -66,7 +66,16 @@ class UserController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        return redirect('/');
+        //check if email and password the same in table
+        $user = User::where('email',$input['email'])->where('password',$input['password'])->first();
+
+
+        if(!$user){
+            return back()->with('message','Sorry, User can\'t be found'); //if user already have return to login page
+        }
+        
+        $request->session()->put('name',$user->name);
+        return redirect('/')->with('message','Log in successfully');;
     }
     /**
      * Display the specified resource.
@@ -76,9 +85,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        session()->flush();
+        // session()->flush();
 
-        Redirect::action('/');
+        // Redirect::action('/');
     }
 
     /**
