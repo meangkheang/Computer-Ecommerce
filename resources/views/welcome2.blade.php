@@ -22,7 +22,7 @@
     <div class="w-full ">
         @include('layouts.popupmsg')
         <div class="w-full relative">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"
+            <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
                 alt="bg.png" class="w-full h-96 object-cover">
             <div class="absolute top-20 text-black xs:translate-x-5 xs:font-thin xs:left-8 md:left-36 xl:left-80">
                 <h1 class="uppercase text-red-500 font-extralight tracking-thin">Summer Sale</h1>
