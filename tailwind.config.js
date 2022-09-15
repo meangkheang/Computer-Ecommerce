@@ -29,7 +29,18 @@ module.exports = {
             "2xl": "1536px",
             // => @media (min-width: 1536px) { ... }
         },
-        extend: {},
+        extend: {
+            keyframes: {
+                slowDrop: {
+                  '0%':{ transform: 'translate(50%,-30px)', },
+                  '50%':{ transform: 'translate(50%,5px)', opacity: 1},
+                  '100%': { opacity: 0 ,transform: 'translate(50%,10px)'},
+                }
+              },
+            animation: {
+                slowDrop: 'slowDrop 2s ease-out forwards',
+            }
+        },
     },
     plugins: [],
 };

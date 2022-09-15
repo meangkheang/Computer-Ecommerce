@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\FuncCall;
 
 class UserController extends Controller
 {
@@ -14,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('auth.signup');
+        return view('auth.signup'); 
     }
 
     /**
@@ -36,18 +38,21 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
+        
         $request->validate([
-            'name' => 'required|min:6>',
-            'email' => 'required|min:10|email',
-            'password' => 'required|min:10|required_with:confirm_password|same:confirm_password',
-            'confirm_password' => 'required|min:10'
+            'name' => 'required|min:4',
+            'email' => 'required|min:8|email',
+            'password' => 'required|min:8|required_with:confirm_password|same:confirm_password',
+            'confirm_password' => 'required|min:8'
         ]);
 
 
         User::create($input);
 
-        return redirect('/')->with('user', $input['name']);
+        //get user authication
+        $request->session()->put('name',$request->name);
+
+        return redirect('/')->with('message','create user successfully');
 
         //dd(1);  
     }
@@ -57,8 +62,8 @@ class UserController extends Controller
         $input = $request->all();
 
         $validated = $request->validate([
-            'email' => 'required|min:10',
-            'password' => 'required|min:10',
+            'email' => 'required|min:8',
+            'password' => 'required|min:8',
         ]);
 
         return redirect('/');
@@ -71,7 +76,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        session()->flush();
+
+        Redirect::action('/');
     }
 
     /**
@@ -106,5 +113,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function logout(){
+
+        //remove all session
+        session()->flush();
+
+        return redirect()->to('/');
     }
 }
