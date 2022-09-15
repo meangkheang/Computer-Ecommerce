@@ -17,14 +17,12 @@ use Illuminate\Http\Request;
 
 Route::get('/', function (Request $request) {
 
-    $validate = $request->validate([
-
-    ]);
+    $validate = $request->validate([]);
 
     return view('welcome2');
-});
+})->name('welcome2');
 
-Route::get('/products',function(){
+Route::get('/products', function () {
     return view('products.home');
 });
 
@@ -38,10 +36,10 @@ Route::get('/products',function(){
 
 
 //manage signin Routes
-Route::get('/auth/signin', function(){
-    return view('auth.signin')->with('result',0);
+Route::get('/auth/signin', function () {
+    return view('auth.signin')->with('result', 0);
 });
-Route::post('/auth/signin',[UserController::class,'store2']);
+Route::post('/auth/signin', [UserController::class, 'store2']);
 
 
 

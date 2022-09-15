@@ -37,15 +37,17 @@ class UserController extends Controller
     {
         $input = $request->all();
 
-        $validated = $request->validate([
+        $request->validate([
             'name' => 'required|min:6>',
             'email' => 'required|min:10|email',
             'password' => 'required|min:10|required_with:confirm_password|same:confirm_password',
-            'confirm_password' =>'required|min:10'
-        ]); 
+            'confirm_password' => 'required|min:10'
+        ]);
+
+
         User::create($input);
 
-        return redirect('/')->with('user',$input['name']);
+        return redirect('/')->with('user', $input['name']);
 
         //dd(1);  
     }
@@ -53,11 +55,11 @@ class UserController extends Controller
     public function store2(Request $request)
     {
         $input = $request->all();
-        
+
         $validated = $request->validate([
             'email' => 'required|min:10',
             'password' => 'required|min:10',
-        ]); 
+        ]);
 
         return redirect('/');
     }
