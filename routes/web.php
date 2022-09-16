@@ -39,6 +39,11 @@ Route::get('/products', function () {
 Route::get('/auth/signin', function () {
     return view('auth.signin');
 });
+Route::get('/cartlist',function(){
+    return view('products.cartlist');
+});
+
+
 Route::post('/auth/signin', [UserController::class, 'store2']);
 
 

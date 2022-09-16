@@ -9,6 +9,7 @@ module.exports = {
         fontFamily: {
             nunito: ["nunito", "sans-serif"],
             main: ["Poppins", "sans-serif"], // Ensure fonts with spaces have " " surrounding it.
+            mavenPro : ['Maven Pro', 'sans-serif'],
         },
         screens: {
             xs: { min: "240px" },

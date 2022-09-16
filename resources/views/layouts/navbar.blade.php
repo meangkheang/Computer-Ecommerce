@@ -24,7 +24,7 @@
             </svg>
         </a>
 
-        <a href="#" class="hover:text-red-600">
+        <a href="/cartlist" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bag "
                 viewBox="0 0 16 16">
                 <path
@@ -89,7 +89,7 @@
                             placeholder="search...">
                     </form>
                 </div>
-                <a href="#  " class="hover:text-red-600 flex gap-2">
+                <a href="/cartlist" class="hover:text-red-600 flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                         class="bi bi-bag " viewBox="0 0 16 16">
                         <path
