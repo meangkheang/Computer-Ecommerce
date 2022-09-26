@@ -33,16 +33,14 @@
                 </a>
             </div>
         </div>
-
-
     </div>
     {{-- Product Section --}}
     <div class="w-full text-center my-12">
         <h1 class="uppercase font-thin text-4xl 
         tracking-tight  mb-16 xs:mb-4">
 
-            Products 
-          
+            Products
+
         </h1>
         <div class="grid grid-cols-2 gap-4 mx-5 my-8 sm:mx-20 sm:my-12 lg:m-16 lg:px-32">
             <div class="col-start-1 row-span-1 ml-auto">
