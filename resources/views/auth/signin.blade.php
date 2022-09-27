@@ -13,6 +13,7 @@
 <body>
     @include('layouts.navbar')
     <!-- component -->
+    @include('layouts.popupmsg')
 <div class="bg-grey-lighter min-h-screen flex flex-col">
     <form class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2" method="post" action="/auth/signin">
         @csrf
@@ -43,7 +44,7 @@
             <button
                 type="submit"
                 class="w-full text-center py-3 rounded bg-green text-black hover:bg-green-dark focus:outline-none my-1 bg-green-400"
-            >Create Account</button>
+            >Sign in</button>
 
             <div class="text-center text-sm text-grey-dark mt-4">
                 By signing up, you agree to the 
@@ -59,7 +60,7 @@
         <div class="text-grey-dark mt-6">
             Create a new account 
             <a class="no-underline border-b border-blue text-blue" href="/auth/">
-                Log in
+                Sign up
             </a>.
         </div>
     </form>
@@ -70,16 +71,3 @@
 </html>
 
 
-{{-- 
-<h1>Sign in page</h1>
-
-<a href="/auth/">Don't have account</a> --}}
-{{-- @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif --}}

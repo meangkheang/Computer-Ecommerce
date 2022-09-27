@@ -24,7 +24,7 @@
             </svg>
         </a>
 
-        <a href="#" class="hover:text-red-600">
+        <a href="/cartlist" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bag "
                 viewBox="0 0 16 16">
                 <path
@@ -32,14 +32,14 @@
             </svg>
         </a>
 
-        <a href="/auth/" class="flex gap-2 items-center hover:text-red-600">
+        <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                 class="bi bi-person-circle " viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                 <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
             </svg>
-            <h1 class="text-xl pt-0">Login</h1>
+            <h1 class="text-xl pt-0">{{ session('name') ? session('name') : ' Sign in' }}</h1>
         </a>
 
     </div>
@@ -65,14 +65,14 @@
 
         <div class="absolute right-0 md:hidden ss:w-80 w-56 top-0 h-[100vh] bg-white z-30 ">
             <div class="flex flex-col flex-start gap-4 m-4 h-full relative">
-                <a href="/auth/" class="flex gap-2 items-center hover:text-red-600" id="loginBtn">
+                <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600" id="loginBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                         class="bi bi-person-circle " viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                         <path fill-rule="evenodd"
                             d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                     </svg>
-                    <h1 class="text-xl pt-0">Login</h1>
+                    <h1 class="text-xl pt-0">{{ session('name') ? session('name') : ' Sign in' }}</h1>
                 </a>
                 <hr>
                 <div class="flex gap-2 items-center">
@@ -89,7 +89,7 @@
                             placeholder="search...">
                     </form>
                 </div>
-                <a href="#" class="hover:text-red-600 flex gap-2">
+                <a href="/cartlist" class="hover:text-red-600 flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
                         class="bi bi-bag " viewBox="0 0 16 16">
                         <path
@@ -104,6 +104,10 @@
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="">Shop</a></li>
                     <li class="py-3 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
+
+                    @if (session('name'))
+                        <li class="py-3 hover:text-white hover:bg-red-600 bg-red-700 text-center rounded text-white"><a href="/auth/logout">Log Out</a></li>
+                    @endif
                 </div>
 
             </div>

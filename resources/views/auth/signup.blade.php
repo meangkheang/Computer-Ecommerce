@@ -20,6 +20,7 @@
             action="/auth/">
             @csrf
             <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+
                 <h1 class="mb-8 text-3xl text-center">Sign up</h1>
 
                 @error('name')
@@ -64,7 +65,7 @@
             <div class="text-grey-dark mt-6">
                 Already have an account?
                 <a class="no-underline border-b border-blue text-blue" href="/auth/signin">
-                    Sign up
+                    Log in
                 </a>.
             </div>
         </form>
