@@ -24,6 +24,13 @@ Route::get('/products', function () {
     return view('products.home');
 });
 
+Route::get('/products/{producttype}', function ($producttype) {
+
+
+
+    return view('products.show')->with('producttype', $producttype);
+});
+
 
 
 // Route::get('/signup',function(){

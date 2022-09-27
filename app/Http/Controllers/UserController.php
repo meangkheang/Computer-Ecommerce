@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('auth.signup'); 
+        return view('auth.signup');
     }
 
     /**
@@ -38,7 +38,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        
+
         $request->validate([
             'name' => 'required|min:4',
             'email' => 'required|min:8|email',
@@ -50,9 +50,9 @@ class UserController extends Controller
         User::create($input);
 
         //get user authication
-        $request->session()->put('name',$request->name);
+        $request->session()->put('name', $request->name);
 
-        return redirect('/')->with('message','create user successfully');
+        return redirect('/')->with('message', 'create user successfully');
 
         //dd(1);  
     }
@@ -67,15 +67,15 @@ class UserController extends Controller
         ]);
 
         //check if email and password the same in table
-        $user = User::where('email',$input['email'])->where('password',$input['password'])->first();
+        $user = User::where('email', $input['email'])->where('password', $input['password'])->first();
 
-
-        if(!$user){
-            return back()->with('message','Sorry, User can\'t be found'); //if user already have return to login page
+        dd($user);
+        if (!$user) {
+            return back()->with('message', 'Sorry, User can\'t be found'); //if user already have return to login page
         }
-        
-        $request->session()->put('name',$user->name);
-        return redirect('/')->with('message','Log in successfully');;
+
+        $request->session()->put('name', $user->name);
+        return redirect('/')->with('message', 'Log in successfully');;
     }
     /**
      * Display the specified resource.
@@ -124,7 +124,8 @@ class UserController extends Controller
         //
     }
 
-    public function logout(){
+    public function logout()
+    {
 
         //remove all session
         session()->flush();
