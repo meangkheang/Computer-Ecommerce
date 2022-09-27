@@ -8,7 +8,7 @@
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
-        <li class="p-4  hover:text-white hover:bg-red-600"><a href="">Shop</a></li>
+        <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
     </div>
     <form action="#" id="searchBox" class="hidden w-[406px]">
@@ -65,7 +65,8 @@
 
         <div class="absolute right-0 md:hidden ss:w-80 w-56 top-0 h-[100vh] bg-white z-30 ">
             <div class="flex flex-col flex-start gap-4 m-4 h-full relative">
-                <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600" id="loginBtn">
+                <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600"
+                    id="loginBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                         class="bi bi-person-circle " viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -106,7 +107,8 @@
                     <li class="py-3 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
 
                     @if (session('name'))
-                        <li class="py-3 hover:text-white hover:bg-red-600 bg-red-700 text-center rounded text-white"><a href="/auth/logout">Log Out</a></li>
+                        <li class="py-3 hover:text-white hover:bg-red-600 bg-red-700 text-center rounded text-white"><a
+                                href="/auth/logout">Log Out</a></li>
                     @endif
                 </div>
 
