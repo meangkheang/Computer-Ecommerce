@@ -35,7 +35,7 @@
         </div>
     </div>
     {{-- Product Section --}}
-    <div class="w-full text-center my-12">
+    <div class="w-3/4 text-center my-12 mx-auto">
         <h1 class="uppercase font-thin text-4xl 
         tracking-tight  mb-16 xs:mb-4">
 
@@ -46,24 +46,28 @@
             <div class="col-start-1 row-span-1 ml-auto">
                 <a href=""><img
                         src="https://images.unsplash.com/photo-1636211992838-251a43d72ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                        alt="" class="rounded h-full w-full object-cover"></a>
+                        alt=""
+                        class="rounded h-full w-full object-cover hover:scale-95 transition-all duration-200 delay-75 shadow"></a>
             </div>
             <div class="grid grid-rows-2 gap-4">
                 <div class="">
                     <a href=""><img
                             src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                            alt="" class="rounded w-full h-full object-cover"></a>
+                            alt=""
+                            class="rounded w-full h-full object-cover hover:scale-95 transition-all duration-200 delay-75 shadow"></a>
                 </div>
                 <div class="grid grid-cols-2 gap-4 w-full">
                     <div class="">
                         <a href=""><img
                                 src="https://images.unsplash.com/photo-1580236176063-bea7f16aec30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=672&q=80"
-                                alt="" class="rounded h-full w-full"></a>
+                                alt=""
+                                class="rounded h-full w-full hover:scale-95 transition-all duration-200 delay-75 shadow"></a>
                     </div>
                     <div class="">
                         <a href=""><img
                                 src="https://images.unsplash.com/photo-1607677686474-ad91fc94f5ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=680&q=80"
-                                alt="" class="rounded h-full w-full"></a>
+                                alt=""
+                                class="rounded h-full w-full hover:scale-95 transition-all duration-200 delay-75 shadow"></a>
                     </div>
                 </div>
 

@@ -3,7 +3,7 @@
     <div class="container mx-auto">
         <div class="w-full grid grid-cols-3 gap-4 my-8 text-center">
             <div class="flex flex-col items-center">
-                <a href="/products/">
+                <a href="/products/laptop">
                     <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                         alt=""
                         class="rounded w-80 object-cover hover:scale-105 transition-all duration-200 delay-75 ">
