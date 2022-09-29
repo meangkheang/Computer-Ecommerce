@@ -1,4 +1,4 @@
-<nav class="shadow-2xl flex items-center w-full justify-between md:justify-around relative">
+<nav class="shadow-lg flex items-center w-full justify-between md:justify-around relative">
     <a href="/" class="p-4">
         <span class="sm:pl-4 text-xl md:p-4">C<span class="text-red-600">E</span>CM</span>
         {{-- <img src="" alt="" class="w-6 rounded"> --}}

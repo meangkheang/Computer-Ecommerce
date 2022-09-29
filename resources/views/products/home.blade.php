@@ -1,62 +1,54 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="container mx-auto">
-        <div class="w-full grid grid-cols-3 gap-4 my-8 text-center">
-            <div class="flex flex-col items-center">
-                <a href="/products/">
-                    <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        alt=""
-                        class="rounded w-80 object-cover hover:scale-105 transition-all duration-200 delay-75 ">
+    <div class="md:w-2/3 w-full mx-auto">
+        <div class="xs:w-full text-center mt-8 py-4">
+            <h1 class="uppercase text-2xl">Featured Categories</h1>
+        </div>
+        <div class="grid md:grid-cols-3 grid-cols-2 gap-1 md:gap-4 md:my-8 my-4 text-center">
+            <div class="flex flex-col items-center p-8">
+                <a href="/products/laptop " class="group">
+                    <img src="{{ asset('images/asset/laptoplogo.png') }}" alt=""
+                        class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
+                    <h1 class="text-lg">Laptop</h1>
                 </a>
-                <h1 class="text-lg">Laptop</h1>
             </div>
-            <div class="flex flex-col items-center">
-                <a href="/products/">
-                    <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        alt=""
-                        class="rounded w-80 object-cover hover:scale-105 transition-all duration-200 delay-75 ">
+            <div class="flex flex-col items-center p-8">
+                <a href="/products/keyboard " class="group">
+                    <img src="{{ asset('images/asset/keyboardlogo.png') }}" alt=""
+                        class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
+                    <h1 class="text-lg">Keyboard</h1>
                 </a>
-                <h1 class="text-lg">Mouse</h1>
             </div>
-            <div class="flex flex-col items-center">
-                <a href="/products/">
-                    <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        alt=""
-                        class="rounded w-80 object-cover hover:scale-105 transition-all duration-200 delay-75 ">
+            <div class="flex flex-col items-center p-8">
+                <a href="/products/laptop " class="group">
+                    <img src="{{ asset('images/asset/mouselogo.png') }}" alt=""
+                        class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
+                    <h1 class="text-lg">Mouse</h1>
                 </a>
-                <h1 class="text-lg">Keyboard</h1>
             </div>
-            <div class="flex flex-col items-center">
-                <a href="/products/">
-                    <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        alt=""
-                        class="rounded w-80 object-cover hover:scale-105 transition-all duration-200 delay-75 ">
+            <div class="flex flex-col items-center p-8">
+                <a href="/products/laptop " class="group">
+                    <img src="{{ asset('images/asset/headphonelogo.png') }}" alt=""
+                        class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
+                    <h1 class="text-lg">Headphone</h1>
                 </a>
-                <h1 class="text-lg">Headphone</h1>
             </div>
-            <div class="flex flex-col items-center">
-                <a href="/products/">
-                    <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                        alt=""
-                        class="rounded w-80 object-cover hover:scale-105 transition-all duration-200 delay-75 ">
+            <div class="flex flex-col items-center p-8">
+                <a href="/products/laptop " class="group">
+                    <img src="{{ asset('images/asset/speakerlogo.png') }}" alt=""
+                        class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
+                    <h1 class="text-lg">Speaker</h1>
                 </a>
-                <h1 class="text-lg">Speaker</h1>
             </div>
         </div>
     </div>
+    <hr>
     <div class="w-full my-8">
-        <div class="text-center xs:w-full">
-            <h1 class="uppercase text-4xl pb-2">Sales</h1>
-            <p class="my-4 px-5 text-sm font-thin tracking-tighter sm:px-14 sm:text-lg md:my-8 lg:px-60">Lorem ipsum
-                dolor sit
-                amet,
-                consectetur
-                adipiscing elit. Sed massa diam, feugiat
-                at mi vel, suscipit pharetra lacus. Donec sit amet augue fermentum, auctor ante a,
-                condimentum erat. </p>
+        <div class="xs:w-full text-center">
+            <h1 class="uppercase text-2xl">Sales</h1>
         </div>
         <div class="swiper">
-            <div class="flex shrink-0 grow gap-8 mx-5 my-10 lg:mx-48 overflow-x-scroll sm:mx-14 scrollbar lg:p-5"
+            <div class="flex shrink-0 grow gap-8 mx-5 my-5 lg:mx-48 overflow-x-scroll sm:mx-14 scrollbar lg:p-5"
                 id="slider">
                 <div class="xs:mb-6 cursor-pointer shrink-0 w-1/2 sm:w-1/4 ">
                     <a href="/products/">
