@@ -6,8 +6,8 @@
 
     <div class="md:flex transition ease-in-out duration-500 font-md list-none hidden" id="menuLink">
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
-        <li class="p-4 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
-        <li class="p-4  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
+        <li class="p-4 hover:text-white hover:bg-red-600"><a href="{{ url('/#about') }}">About</a></li>
+        <li class="p-4  hover:text-white hover:bg-red-600"><a href="{{ url('/#sales') }}">Sales</a></li>
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
     </div>

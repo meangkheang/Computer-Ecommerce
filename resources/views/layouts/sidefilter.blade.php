@@ -8,19 +8,19 @@
         </div>
         <div class="py-1 flex gap-3">
             <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <label for="option1">Dell</label>
         </div>
         <div class="py-1 flex gap-3">
             <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <label for="option1">Predictor</label>
         </div>
         <div class="py-1 flex gap-3">
             <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <label for="option1">MSI</label>
         </div>
         <div class="py-1 flex gap-3">
             <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <label for="option1">Rog</label>
         </div>
     </div>
     <hr>
