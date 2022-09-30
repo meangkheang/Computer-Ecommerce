@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
+
+    nav,
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+    svg {
+        cursor: pointer;
+    }
+}
+@layer utilities {
+    body::-webkit-scrollbar {
+        width: 15px;
+    }
+    body::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 100vw;
+        border: 3px solid #f6f7ed;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+        background: #595957;
+    }
+    .scrollbar::-webkit-scrollbar {
+        height: 15px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #fff;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: #ddd;
+        border-radius: 100vh;
+        border: 3px solid #f6f7ed;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #595957;
+    }
+}

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,51 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (Request $request) {
+
+    return view('welcome2');
+})->name('welcome2');
+
+Route::get('/products', function () {
+    return view('products.home');
 });
+
+Route::get('/products/{producttype}', function ($producttype) {
+    return view('products.product')->with('producttype', $producttype);
+});
+
+Route::get('/products/{producttype}/{id}', function ($producttype, $id) {
+    return view('products.show')->with(['producttype' => $producttype, 'id' => $id]);
+});
+
+Route::get('/products/{producttype}/{id}', function ($producttype, $id) {
+    return view('products.showproduct');
+});
+
+
+
+// Route::get('/signup',function(){
+//     return view('auth.signup');
+// });
+// Route::get('/signin',function(){
+//     return view('auth.signin');
+// });
+
+
+
+//manage signin Routes
+Route::get('/auth/signin', function () {
+    return view('auth.signin');
+});
+Route::get('/cartlist', function () {
+    return view('products.cartlist');
+});
+
+
+Route::post('/auth/signin', [UserController::class, 'store2']);
+
+
+Route::get('/auth/logout', [UserController::class, 'logout']);
+Route::resource('/auth', UserController::class);
+
+//this is welcomepage
