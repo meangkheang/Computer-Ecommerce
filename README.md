@@ -23,10 +23,23 @@
 ```
 1. clone this repos from forked
 
-2. type "composer install &&  npm install " in any teminal you had
+2. and switch to backend branch(remote)
 
-3. npm run dev & php artisan serve
+3. php artisan serve & npm run dev
 
-4. that's work!!
+```
+
+## how to config database
+
+```
+1. go to any database you want in my case i use xampp. it make thing a lot easier.
+
+2. run command in terminal 'php artisan migrate' 
+
+3. there's a file call 'query.txt' navigate there and copy all the text from file
+
+4. pass all text to sql query.
+
+5. and that's all there is to it
 
 ```
