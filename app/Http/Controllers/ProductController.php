@@ -118,7 +118,7 @@ class ProductController extends Controller
 
         if(count($input['rate']) != 0 ){
             if($type == 'all'){
-                
+
                 $products = Product::where('rate',$input['rate'][0])->get();
                 return redirect()->to('/products/filter?type=' . $type)->with('products',$products); 
             }
@@ -189,5 +189,12 @@ class ProductController extends Controller
         Cart::where('product_id',$id)->first()->delete();
 
         return redirect('/cartlist');
+    }
+
+    public function remove_carts(){
+
+        Cart::query()->delete();
+        
+        return redirect('/cartlist?pay_sucess=1');
     }
 }

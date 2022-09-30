@@ -30,8 +30,13 @@
 
         @include('layouts.creditcard')
         <br>
-        <a class="px-4 py-3 text-white rounded bg-blue-600 text-sm hover:bg-blue-800 ml-5 cursor-pointer" href="/?pay_sucess=1">Confirm Payment</a>
+        <form action="/cartlist/remove_carts" method="post">
+            @csrf
+
+            <button class="px-4 py-3 text-white rounded bg-blue-600 text-sm hover:bg-blue-800 ml-5 cursor-pointer" type="submit" id="pay_btn">Confirm Payment</button>
         
+        </form>
+       
 
     </div>
 
@@ -83,7 +88,11 @@
             @empty
                 <img src="https://book.smartercarrentals.com/images/cart.png" alt="" class="mx-auto">
             @endforelse
-            <h1 class="text-md float-right">Subtotal : $0</h1>   
+
+            @if(count($CartProducts)== 0)
+            <hr class="pt-8 mt-2">
+            @endif
+            <h1 class="text-md float-right">Subtotal : $300</h1>   
         </div>
     </div>
 
@@ -91,6 +100,7 @@
         let checkout_btn= document.getElementById('checkout_btn');
         let checkout_content= document.getElementById('checkout_content');
         let close_btn= document.getElementById('close_btn');
+        let pay_btn= document.getElementById('pay_btn');
 
         function checkout(){
             checkout_btn.addEventListener('click',function(e){
@@ -102,6 +112,11 @@
             close_btn.addEventListener('click',function(e){
                 checkout_content.classList.add('hidden');
 
+            });
+
+            //pay
+            pay_btn.addEventListener('click',function(e){
+                //clear 
             });
         }
         checkout();
