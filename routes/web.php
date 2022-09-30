@@ -33,7 +33,7 @@ Route::get('/products/{producttype}/{id}', function ($producttype, $id) {
 });
 
 Route::get('/products/{producttype}/{id}', function ($producttype, $id) {
-    return view('products.showproduct');
+    return view('products.show');
 });
 
 
