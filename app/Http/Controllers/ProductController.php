@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Symfony\Component\Finder\Iterator\SortableIterator;
 
 class ProductController extends Controller
 {
@@ -109,9 +110,29 @@ class ProductController extends Controller
     }
     public function filter(Request $request,$producttype)
     {
+        $products = null;
+
+        $sortBy = $request['sortby'];
         $input = $request->all();
         $type = $request->type;
-        
+
+
+        switch ($sortBy) {
+            case 'recommend':
+                $products = Product::where('type',$type)->get()->sortBy('id',null,false);
+                return redirect()->to('/products/filter?type=' . $type . '&sortby=recommend' )->with('products',$products); 
+                
+            case 'popular':
+
+                $products = Product::where('type',$type)->get()->sortBy('review',null,true)->sortBy('rate',null,true);
+                return redirect()->to('/products/filter?type=' . $type . '&sortby=popular')->with('products',$products); 
+
+            case 'newest':
+                $products = Product::where('type',$type)->get()->sortBy('id',null,true);
+                return redirect()->to('/products/filter?type=' . $type . '&sortby=newest')->with('products',$products); 
+            
+        }
+
         if(empty($input['rate'])){
             return back();
         } 
@@ -148,12 +169,12 @@ class ProductController extends Controller
 
     public function addtocart(Request $request,$producttype,$id){
        
-       
+        
         $check = Cart::where('product_id',$id)->first();
+
         $quantity = $request['quantity'];
 
         if($check){
-
 
             //update product quantity in product table from cart table
             Cart::where('product_id',$id)->first()->Product->update(array('quantity'=>$quantity));
@@ -165,7 +186,6 @@ class ProductController extends Controller
 
             session()->put('CartProducts',$CartProducts);
             return redirect()->to('/cartlist');
-
 
         }else{
 

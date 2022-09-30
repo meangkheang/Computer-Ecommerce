@@ -26,10 +26,10 @@ Route::get('/', function (Request $request) {
 
 
 //routes products
-Route::get('/cartlist/{id}',[ProductController::class,'remove_product_in_cart'] );
+Route::get('/cartlist/{id}',[ProductController::class,'remove_product_in_cart']);
 Route::post('/cartlist/remove_carts',[ProductController::class,'remove_carts'] );
 Route::get('/products/{producttype}/{id}',[ProductController::class,'show'] );
-Route::post('/products/{producttype}/filter',[ProductController::class,'filter'] );
+Route::post('/products/{producttype}/filter',[ProductController::class,'filter']);
 Route::post('/products/{producttype}/{id}',[ProductController::class,'addtocart'] );
 Route::get('/products/filter',[ProductController::class,'index']);
 Route::get('/products', function () {

@@ -3,14 +3,20 @@
     {{-- sort by and result --}}
     <div class="w-full flex justify-between py-2 px-8">
         <div class="">Showing 1-{{ count($products) }} out of {{ count($products) }}</div>
-        <div class="flex items-center">
-            <h1>Sort By:</h1>
-            <select id="" class="border-2 px-3 mx-2">
-                <option value="recommend">Recommend</option>
-                <option value="popular">Popular</option>
-                <option value="newest">Newest</option>
-            </select>
-        </div>
+
+        <form action="/products/laptop/filter?type={{ request('type') }}" method="post">
+            @csrf
+            <div class="flex items-center">
+                <h1>Sort By:</h1>
+                <select id="" class="border-2 px-3 mx-2" name="sortby" onchange="this.form.submit()">
+                    <option value="recommend" {{ request('sortby') == 'recommend' ? 'selected' : '' }}>Recommend</option>
+                    <option value="popular" {{ request('sortby') == 'popular' ? 'selected' : '' }}>Popular</option>
+                    <option value="newest" {{ request('sortby') == 'newest' ? 'selected' : '' }}>Newest</option>
+                </select>
+            </div>
+
+        </form>
+       
     </div>
     <div class="w-full flex mb-24">
         @include('layouts.sidefilter')
@@ -25,6 +31,7 @@
                             <div class="flex flex-col justify-between items-start">
                                 <h1 class="text-center mt-4 text-md pl-4 font-bold">{{ $product->name }}</h1>
                                 <a href="#" class="flex list-none pl-4 items-center mt-1">
+
                                     @if ($product->rate <= 0)
                                         <li><i class="bi bi-star"></i></li>
                                         <li><i class="bi bi-star"></i></li>
@@ -40,6 +47,7 @@
                                             <li><i class="bi bi-star"></i></li>
                                         @endfor
                                     @endif
+
                                     
                                    
                                     <span class="text-sm pl-2 text-green-700">{{ $product->review }} {{ $product->review > 0 ? 'reviews' : 'review' }}</span>
