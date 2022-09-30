@@ -69,7 +69,7 @@ class UserController extends Controller
         //check if email and password the same in table
         $user = User::where('email', $input['email'])->where('password', $input['password'])->first();
 
-        dd($user);
+        
         if (!$user) {
             return back()->with('message', 'Sorry, User can\'t be found'); //if user already have return to login page
         }

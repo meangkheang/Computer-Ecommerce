@@ -11,8 +11,11 @@
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
     </div>
-    <form action="#" id="searchBox" class="hidden w-[406px]">
-        <input type="text" class="border rounded w-full p-1" placeholder="Search...">
+    <form action="/products/filter?" id="searchBox" class="hidden w-[406px] relative" method="get">
+        @csrf
+        <input type="hidden" name="type" value="all">
+        <input type="text" class="border rounded w-full p-1" placeholder="Search..." name="search">
+        
     </form>
     <div class="gap-6 md:flex items-center hidden relative">
 
@@ -47,7 +50,7 @@
 
     <div class="md:hidden p-4 flex gap-3">
 
-        <a href="#" class="hover:text-red-600">
+        <a href="/cartlist" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" fill="currentColor" class="bi bi-bag "
                 viewBox="0 0 16 16">
                 <path
@@ -57,7 +60,8 @@
         <a href="#" class="hover:text-red-600" id="menuBtn"><svg xmlns="http://www.w3.org/2000/svg"
                 class="w-6 h-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg></a>
+            </svg>
+        </a>
     </div>
     <div class="fixed top-0 left-0 right-0 bottom-0 z-50 w-full h-full md:hidden hidden" id="menu">
         <div class="bg-black opacity-80 w-full h-[100vh] fixed top-0 md:hidden">
@@ -96,14 +100,14 @@
                         <path
                             d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
                     </svg>
-                    <h2>2</h2>
+                    <h2>{{ !empty($CartProducts) ? count($CartProducts) : '0' }}</h2>
                 </a>
                 <hr>
                 <div class="flex-col transition ease-in-out duration-500 font-md list-none">
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
                     <li class="py-3 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
-                    <li class="py-3  hover:text-white hover:bg-red-600"><a href="">Shop</a></li>
+                    <li class="py-3  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
                     <li class="py-3 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
 
                     @if (session('name'))

@@ -180,7 +180,7 @@
     </div>
     <hr>
     {{-- Feedbacks Section --}}
-    <div class="w-full font-bold text-center text-2xl p-8 ">
+    <div class="w-full font-bold text-center text-2xl p-8 mb-24">
         <h1 class="text-center mb-10 sm:text-4xl text-2xl">Feedbacks</h1>
 
         <div class="flex gap-8 justify-center flex-wrap">
