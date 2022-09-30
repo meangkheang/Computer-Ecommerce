@@ -18,7 +18,7 @@
 - Panha
 - Porpor
 
-## Install Boostrap with laravel
+## How to start ? 
 
 ```
 1. clone this repos from forked
