@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="md:w-2/3 w-full mx-auto">
+    <div class="md:w-2/3 w-full mx-auto overflow-hidden h-[90%]">
         <div class="xs:w-full text-center mt-8 py-4">
             <h1 class="uppercase text-2xl">Featured Categories</h1>
         </div>
@@ -42,5 +42,4 @@
             </div>
         </div>
     </div>
-    <hr>
 @endsection

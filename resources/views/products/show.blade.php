@@ -1,24 +1,22 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="w-full mb-[201px]">
-        <div class="grid md:grid-cols-2 grid-cols-1 md:w-2/3 gap-2 md:mx-auto w-full px-4">
+    <div class="h-[90%]">
+        <div class="grid md:grid-cols-2 grid-cols-1  lg:w-2/3 gap-2 lg:mx-auto w-full h-full px-4">
             <div class="xs:mb-6 cursor-pointer w-full p-3">
                 <a href="/products/laptop/1">
                     <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                         alt="" class="h-96 object-cover w-full ">
 
                 </a>
-                <div class="mt-8 flex justify-between">
-                    <button id="" class="border p-1 rounded"><img
+                <div class="mt-8 flex justify-around">
+
+                    <button id="" class="border p-1 rounded lg:w-1/4"><img
+                            src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                            alt="" class="h-20 object-cover  w-full "></button>
+                    <button id="" class="border p-1 rounded lg:w-1/4 "><img
                             src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                             alt="" class="h-20 object-cover w-full "></button>
-                    <button id="" class="border p-1 rounded"><img
-                            src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                            alt="" class="h-20 object-cover w-full "></button>
-                    <button id="" class="border p-1 rounded"><img
-                            src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                            alt="" class="h-20 object-cover w-full "></button>
-                    <button id="" class="border p-1 rounded"><img
+                    <button id="" class="border p-1 rounded lg:w-1/4 "><img
                             src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
                             alt="" class="h-20 object-cover w-full "></button>
                 </div>

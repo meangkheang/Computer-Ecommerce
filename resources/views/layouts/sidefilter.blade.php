@@ -1,4 +1,4 @@
-<div class="w-1/5 flex flex-col p-4 bg-white border">
+<div class="sm:w-1/5 flex flex-col p-4 bg-white border w-2/5">
     <h1>FILTERS</h1>
     <hr>
     <div class="mt-2">BRAND

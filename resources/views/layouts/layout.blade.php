@@ -22,6 +22,8 @@
     @yield('content')
     @include('layouts.footer')
 
+
+
 </body>
 <script>
     const sliders = document.querySelector("#slider");

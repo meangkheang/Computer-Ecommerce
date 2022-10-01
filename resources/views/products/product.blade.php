@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
     {{-- sort by and result --}}
-    <div class="w-full flex justify-between py-2 px-8">
+    <div class="w-full flex justify-between py-2 px-4 sm:text-base text-sm sm:px-8 sm:flex-row flex-col">
         <div class="">Showing 1-8 out of n</div>
         <div class="flex items-center">
             <h1>Sort By:</h1>
@@ -14,7 +14,7 @@
     </div>
     <div class="w-full flex">
         @include('layouts.sidefilter')
-        <div class="w-4/5 grid grid-cols-4 gap-4 p-4">
+        <div class="w-4/5 grid lg:grid-cols-4 gap-4 p-4 md:grid-cols-3 sm:grid-cols-2">
             <div class="bg-stone-100 rounded hover:scale-95 transition-all duration-200">
                 <div class="xs:mb-6 cursor-pointer shrink-0 w-full ">
                     <a href="/products/laptop/1">

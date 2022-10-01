@@ -11,29 +11,70 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
+    <style>
+        :root {
+            --swiper-navigation-size: 30px;
+        }
 
+        .swiper-button-next {
+            color: white;
+
+        }
+
+        .swiper-button-prev {
+            color: white
+        }
+    </style>
 </head>
 
 <body class="relative">
     @include('layouts.navbar')
     {{-- Slideshow --}}
     <div class="w-full ">
+
         @include('layouts.popupmsg')
-        <div class="w-full relative">
-            <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
-                alt="bg.png" class="w-full h-96 object-cover">
-            <div class="absolute top-20 text-black xs:translate-x-5 xs:font-thin xs:left-8 md:left-36 xl:left-80">
-                <h1 class="uppercase text-red-500 font-extralight tracking-thin">Summer Sale</h1>
-                <h1 class="text-4xl uppercase font-bold">Get up to </h1>
-                <h1 class="text-7xl uppercase font-extrabold text-red-600">15%</h1><br>
-                <a href="products">
-                    <button
-                        class="px-8 py-3 bg-black rounded-xl text-white shadow hover:text-red-600 hover:underline">Shop
-                        Now</button>
-                </a>
+        <div class="swiper mySwiper md:h-96 h-48">
+            <div class="w-full relative swiper-wrapper">
+                <div class="swiper-slide "><img
+                        src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
+                        alt="bg.png" class="w-full h-full object-cover">
+                    <div
+                        class="absolute md:top-20 top-8 text-black xs:translate-x-5 xs:font-thin  xs:left-8 md:left-36 xl:left-80">
+                        <h1 class="uppercase text-red-500 font-extralight tracking-thin md:text-4xl text-sm">Summer Sale
+                        </h1>
+                        <h1 class="md:text-4xl text-xl uppercase font-bold ">Get up to </h1>
+                        <h1 class="md:text-7xl text-4xl uppercase md:font-extrabold text-red-600">15%</h1>
+                        <a href="products">
+                            <button
+                                class="md:px-8 md:py-3 bg-black rounded-xl md:text-base text-xs py-2 px-3 md:mt-4  text-white shadow hover:text-red-600 hover:underline">Shop
+                                Now</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide "><img
+                        src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
+                        alt="bg.png" class="w-full h-full object-cover">
+                    <div
+                        class="absolute md:top-20 top-8 text-black xs:translate-x-5 xs:font-thin  xs:left-8 md:left-36 xl:left-80">
+                        <h1 class="uppercase text-red-500 font-extralight tracking-thin md:text-4xl text-sm">Summer Sale
+                        </h1>
+                        <h1 class="md:text-4xl text-xl uppercase font-bold text-white">Get up to </h1>
+                        <h1 class="md:text-7xl text-4xl uppercase md:font-extrabold text-red-600">15%</h1>
+                        <a href="products">
+                            <button
+                                class="md:px-8 md:py-3 bg-black rounded-xl md:text-base text-xs py-2 px-3 md:mt-4  text-white shadow hover:text-red-600 hover:underline">Shop
+                                Now</button>
+                        </a>
+                    </div>
+                </div>
+
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
+
     </div>
     {{-- Product Section --}}
     <div class="w-full text-center my-8">
@@ -46,27 +87,27 @@
     <div class="lg:w-1/2 flex mx-auto w-full">
         <div class="grid grid-cols-2 gap-4 md:m-12 sm:m-6 m-4">
             <div class="col-start-1 row-span-1 px-2">
-                <a href="" class=""><img
+                <a href="products/laptop" class=""><img
                         src="https://images.unsplash.com/photo-1636211992838-251a43d72ad2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                         alt=""
                         class="rounded h-full w-full object-cover hover:scale-105 transition-all duration-200 delay-75 shadow"></a>
             </div>
             <div class="grid grid-rows-2 gap-4">
                 <div class="">
-                    <a href=""><img
+                    <a href="products/keyboard"><img
                             src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
                             alt=""
                             class="rounded w-full h-full object-cover hover:scale-105 transition-all duration-200 delay-75 shadow"></a>
                 </div>
                 <div class="grid grid-cols-2 gap-4 w-full">
                     <div class="">
-                        <a href=""><img
+                        <a href="products/headphone"><img
                                 src="https://images.unsplash.com/photo-1580236176063-bea7f16aec30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=672&q=80"
                                 alt=""
                                 class="rounded h-full w-full hover:scale-105 transition-all duration-200 delay-75 shadow"></a>
                     </div>
                     <div class="">
-                        <a href=""><img
+                        <a href="products/mouse"><img
                                 src="https://images.unsplash.com/photo-1607677686474-ad91fc94f5ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=680&q=80"
                                 alt=""
                                 class="rounded h-full w-full hover:scale-105 transition-all duration-200 delay-75 shadow"></a>
@@ -304,7 +345,7 @@
     @include('layouts.footer')
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script>
     const sliders = document.querySelector("#slider");
     let isDown = false;
@@ -333,6 +374,16 @@
         sliders.scrollLeft = scrollLeft - walk;
 
     });
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        loop: true,
+        click: true,
+
+    });
 </script>
+
 
 </html>

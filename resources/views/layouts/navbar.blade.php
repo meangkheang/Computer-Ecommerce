@@ -6,13 +6,20 @@
 
     <div class="md:flex transition ease-in-out duration-500 font-md list-none hidden" id="menuLink">
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
-        <li class="p-4 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
-        <li class="p-4  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
+        <li class="p-4 hover:text-white hover:bg-red-600"><a href="/#about">About</a></li>
+        <li class="p-4  hover:text-white hover:bg-red-600"><a href="/#sales">Sales</a></li>
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
     </div>
-    <form action="#" id="searchBox" class="hidden w-[406px]">
-        <input type="text" class="border rounded w-full p-1" placeholder="Search...">
+    <form action="#" id="searchBox" class="hidden w-[406px] relative">
+        <input type="text" class="border rounded w-full p-2 text-sm" placeholder="Search...">
+        <a href="#" id="search1" class="hover:text-red-600 absolute top-2 md:-right-6 right-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+        </a>
     </form>
     <div class="gap-6 md:flex items-center hidden relative">
 
@@ -46,6 +53,7 @@
 
 
     <div class="md:hidden p-4 flex gap-3">
+
 
         <a href="#" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" fill="currentColor" class="bi bi-bag "
@@ -134,6 +142,7 @@
     const btnClose = document.getElementById('btnClose');
     const menu = document.getElementById('menu');
     const search = document.getElementById('search');
+    const search1 = document.getElementById('search1');
     const searchBox = document.getElementById('searchBox');
     const loginBtn = document.getElementById('loginBtn');
     const menuLink = document.getElementById('menuLink');
@@ -147,7 +156,8 @@
         menu.classList.remove('hidden');
         btnClose.classList.remove('hidden');
         body.classList.add('overflow-hidden');
-        searchBox.classList.add('hidden');
+
+
     });
     btnClose.addEventListener('click', () => {
         menu.classList.add('hidden');
@@ -156,6 +166,14 @@
     })
     search.addEventListener('click', () => {
         menuLink.classList.toggle('md:hidden');
+        search.classList.toggle('hidden');
+        searchBox.style.width = "450px";
+        searchBox.classList.toggle('hidden');
+    })
+
+    search1.addEventListener('click', () => {
+        menuLink.classList.toggle('md:hidden');
+        search.classList.toggle('hidden');
         searchBox.classList.toggle('hidden');
     })
 </script>
