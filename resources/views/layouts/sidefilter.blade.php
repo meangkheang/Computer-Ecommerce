@@ -3,24 +3,24 @@
     <hr>
     <div class="mt-2">BRAND
         <div class="mt-2 py-1 flex gap-3">
-            <input type="checkbox" id="option1" name="" value="">
+            <input type="checkbox" id="option1" name="" value="asus">
             <label for="option1">Asus</label>
         </div>
         <div class="py-1 flex gap-3">
-            <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <input type="checkbox" id="option1" name="" value="dell">
+            <label for="option1">Dell</label>
         </div>
         <div class="py-1 flex gap-3">
-            <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <input type="checkbox" id="option1" name="" value="predictor">
+            <label for="option1">Predictor</label>
         </div>
         <div class="py-1 flex gap-3">
-            <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <input type="checkbox" id="option1" name="" value="msi">
+            <label for="option1">MSI</label>
         </div>
         <div class="py-1 flex gap-3">
-            <input type="checkbox" id="option1" name="" value="">
-            <label for="option1">Asus</label>
+            <input type="checkbox" id="option1" name="" value="rog">
+            <label for="option1">Rog</label>
         </div>
     </div>
     <hr>

@@ -20,21 +20,21 @@
                 </a>
             </div>
             <div class="flex flex-col items-center p-8">
-                <a href="/products/laptop " class="group">
+                <a href="/products/mouse " class="group">
                     <img src="{{ asset('images/asset/mouselogo.png') }}" alt=""
                         class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
                     <h1 class="text-lg">Mouse</h1>
                 </a>
             </div>
             <div class="flex flex-col items-center p-8">
-                <a href="/products/laptop " class="group">
+                <a href="/products/headphone " class="group">
                     <img src="{{ asset('images/asset/headphonelogo.png') }}" alt=""
                         class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
                     <h1 class="text-lg">Headphone</h1>
                 </a>
             </div>
             <div class="flex flex-col items-center p-8">
-                <a href="/products/laptop " class="group">
+                <a href="/products/speaker" class="group">
                     <img src="{{ asset('images/asset/speakerlogo.png') }}" alt=""
                         class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
                     <h1 class="text-lg">Speaker</h1>

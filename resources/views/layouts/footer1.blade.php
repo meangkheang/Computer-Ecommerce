@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer mt-2">
     <div class="footer-left col-md-4 col-sm-6">
         <p class="about">
             <span> About the company</span> Ut congue augue non tellus bibendum, in varius tellus condimentum. In

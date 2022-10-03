@@ -1,4 +1,4 @@
-<nav class="shadow-lg flex items-center w-full justify-between md:justify-around relative">
+<nav class="shadow-lg flex items-center w-full justify-between md:justify-around ">
     <a href="/" class="p-4">
         <span class="sm:pl-4 text-xl md:p-4">C<span class="text-red-600">E</span>CM</span>
         {{-- <img src="" alt="" class="w-6 rounded"> --}}
@@ -6,13 +6,18 @@
 
     <div class="md:flex transition ease-in-out duration-500 font-md list-none hidden" id="menuLink">
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
-        <li class="p-4 hover:text-white hover:bg-red-600"><a href="/#about">About</a></li>
+        <li class="p-4 hover:text-white hover:bg-red-600"><a href="/about">About</a></li>
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/#sales">Sales</a></li>
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
-        <li class="p-4 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
+        <li class="p-4 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
+
+        @if (session()->has('user'))
+            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li>
+        @endif
+
     </div>
     <form action="#" id="searchBox" class="hidden w-[406px] relative">
-        <input type="text" class="border rounded w-full p-2 text-sm" placeholder="Search...">
+        <input type="text" class="border  outline-none bg-gray-200  rounded w-full p-2 text-sm" placeholder="Search...">
         <a href="#" id="search1" class="hover:text-red-600 absolute top-2 md:-right-6 right-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" fill="currentColor" class="bi bi-x-lg"
                 viewBox="0 0 16 16">
@@ -21,7 +26,7 @@
             </svg>
         </a>
     </form>
-    <div class="gap-6 md:flex items-center hidden relative">
+    <div class="gap-9 md:flex items-center hidden relative">
 
         <a href="#" id="search" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
@@ -31,7 +36,14 @@
             </svg>
         </a>
 
-        <a href="/cartlist" class="hover:text-red-600">
+        <a href="/cartlist" class="hover:text-red-600 flex gap-2">
+            <p class="pt-[2px]">
+                @if (session()->has('cart_count'))
+                    {{ session('cart_count') }}
+                @else
+                    0
+                @endif
+            </p>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bag "
                 viewBox="0 0 16 16">
                 <path
@@ -46,12 +58,16 @@
                 <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
             </svg>
-            <h1 class="text-xl pt-0">{{ session('name') ? session('name') : ' Sign in' }}</h1>
+            @if(session()->has('user'))
+                <h1 class="text-xl pt-0">{{ session('user') ? session('user.name') : ' Sign in' }}</h1>
+                <a href="/auth/logout" class="rounded px-4 py-2 bg-red-600 text-white">Log out</a>
+            @endif
         </a>
 
     </div>
 
 
+    {{-- phone view --}}
     <div class="md:hidden p-4 flex gap-3">
 
 
@@ -109,10 +125,12 @@
                 <hr>
                 <div class="flex-col transition ease-in-out duration-500 font-md list-none">
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
-                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
+                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/about">About</a></li>
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
-                    <li class="py-3  hover:text-white hover:bg-red-600"><a href="">Shop</a></li>
-                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
+                    <li class="py-3  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
+                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
+                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li>
+
 
                     @if (session('name'))
                         <li class="py-3 hover:text-white hover:bg-red-600 bg-red-700 text-center rounded text-white"><a

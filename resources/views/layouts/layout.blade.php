@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Computer-Ecommerce</title>
-
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +14,15 @@
 
 </head>
 
-<body>
+<body >
 
+<div class="w-full">
     @include('layouts.navbar')
     @include('layouts.productnavbar')
     @yield('content')
     @include('layouts.footer')
-
+</div>
+   
 
 
 </body>

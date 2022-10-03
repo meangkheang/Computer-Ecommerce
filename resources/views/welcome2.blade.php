@@ -197,28 +197,7 @@
         </div>
     </div>
     <hr>
-    {{-- About us Section --}}
-    <div class="w-full p-8 drop-shadow-2xl " id="about">
-        <h1 class="font-bold text-center sm:text-4xl text-2xl py-5">ABOUT US</h1>
-
-        <div class="grid grid-cols-1 items-center lg:mx-56  lg:grid-cols-2 mx-4 px-5 lg:text-lg text-sm">
-            <img src="https://images.unsplash.com/photo-1470137237906-d8a4f71e1966?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80"
-                alt="" class=" justify-self-center rounded-2xl p-8 w-96 h-full object-cover">
-            <div class="mt-8 ">
-                <div class="w-full xs:text-center">
-                    <h1 class="font-bold sm:text-4xl text-2xl mb-8">Why choose us?</h1>
-                    <p class="font-thin tracking-tighter md:px-5 px-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Sed massa diam, feugiat at mi vel, suscipit pharetra
-                        lacus. Donec sit amet augue fermentum, auctor ante
-                        a, condimentum erat. Aenean in eleifend lorem. Etiam
-                        elementum turpis lacus, eu viverra ligula auctor in.
-
-                </div>
-                </p>
-            </div>
-        </div>
-    </div>
+    
     <hr>
     {{-- Feedbacks Section --}}
     <div class="w-full font-bold text-center text-2xl p-8 ">
@@ -228,7 +207,7 @@
             <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/50/9e/c0/509ec0cb3a7f1d47d67afc81a8751f70.jpg" alt=""
-                        class="rounded-full sm:w-24 mb-4 mx-auto w-14">
+                        class="rounded-full sm:w-20 mb-4 mx-auto w-14">
                     <div>
                         <h1 class="sm:hidden text-sm">Thomas</h1>
                         <span
@@ -247,16 +226,14 @@
                         amet
                         consectetur,
                         adipisicing elit.
-                        Eius,
-                        quo tempora. Accusamus, dolorum. Nihil adipisci repellat totam perspiciatis laboriosam minus rem
-                        labore libero. Temporibus accusantium tenetur soluta quia nisi inventore.</p>
+                        </p>
                 </div>
 
             </div>
             <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/97/d7/8b/97d78bd627c7cb5935140fbb4f312a31.jpg" alt=""
-                        class="rounded-full sm:w-24 mb-4 mx-auto w-14">
+                        class="rounded-full sm:w-20 mb-4 mx-auto w-14">
                     <div>
                         <h1 class="sm:hidden text-sm">Thomas</h1>
                         <span
@@ -275,9 +252,7 @@
                         amet
                         consectetur,
                         adipisicing elit.
-                        Eius,
-                        quo tempora. Accusamus, dolorum. Nihil adipisci repellat totam perspiciatis laboriosam minus rem
-                        labore libero. Temporibus accusantium tenetur soluta quia nisi inventore.</p>
+                       </p>
                 </div>
 
             </div>
@@ -285,7 +260,7 @@
             <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/d1/00/e6/d100e654ce2420bd44e343351f262542.jpg" alt=""
-                        class="rounded-full sm:w-24 mb-4 mx-auto w-14">
+                        class="rounded-full sm:w-20 mb-4 mx-auto w-14">
                     <div>
                         <h1 class="sm:hidden text-sm">Thomas</h1>
                         <span
@@ -304,9 +279,7 @@
                         amet
                         consectetur,
                         adipisicing elit.
-                        Eius,
-                        quo tempora. Accusamus, dolorum. Nihil adipisci repellat totam perspiciatis laboriosam minus rem
-                        labore libero. Temporibus accusantium tenetur soluta quia nisi inventore.</p>
+                       </p>
                 </div>
 
             </div>
@@ -314,7 +287,7 @@
             <div class="p-4 shadow-lg border sm:w-[16rem] flex sm:block sm:justify-around gap-4 w-full">
                 <div class="text-center sm:w-full w-1/3">
                     <img src="https://i.pinimg.com/736x/a8/82/15/a88215c61f2f631b47dcf2adf12b66c3.jpg" alt=""
-                        class="rounded-full sm:w-24 mb-4 mx-auto w-14">
+                        class=" rounded-full sm:w-20 mb-4 mx-auto w-14">
                     <div>
                         <h1 class="sm:hidden text-sm">Thomas</h1>
                         <span
@@ -333,16 +306,14 @@
                         amet
                         consectetur,
                         adipisicing elit.
-                        Eius,
-                        quo tempora. Accusamus, dolorum. Nihil adipisci repellat totam perspiciatis laboriosam minus rem
-                        labore libero. Temporibus accusantium tenetur soluta quia nisi inventore.</p>
+                       </p>
                 </div>
             </div>
         </div>
 
     </div>
-
     @include('layouts.footer')
+     
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>

@@ -1,4 +1,4 @@
-<footer class="flex-col  flex mt-12">
+<footer class="flex-col flex mt-12 text-sm relative ">
     <div class="md:flex bg-red-600 justify-around p-4">
         <div class="flex flex-col md:w-1/3 gap-4">
             <a href="/" class="py-3">
@@ -50,10 +50,10 @@
                 <div class="footer-widget-heading">
                     <h3 class="text-white text-3xl">Subscribe</h3>
                 </div>
-                <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-4 relative">
                     <p class="mt-4">Don’t miss to subscribe to our shop, kindly fill the form below.</p>
-                    <form action="#">
-                        <input type="text" class="p-2" placeholder="Email Address">
+                    <form action="#" class="w-2/3">
+                        <input type="text" class="p-2 w-full placeholder:text-sm rounded outline-none text-sm" placeholder="Email Address">
 
                     </form>
                 </div>
