@@ -1,4 +1,4 @@
-<nav class="shadow-2xl flex items-center w-full justify-between md:justify-around relative">
+<nav class="shadow-lg flex items-center w-full justify-between md:justify-around ">
     <a href="/" class="p-4">
         <span class="sm:pl-4 text-xl md:p-4">C<span class="text-red-600">E</span>CM</span>
         {{-- <img src="" alt="" class="w-6 rounded"> --}}
@@ -6,15 +6,27 @@
 
     <div class="md:flex transition ease-in-out duration-500 font-md list-none hidden" id="menuLink">
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
-        <li class="p-4 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
-        <li class="p-4  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
-        <li class="p-4  hover:text-white hover:bg-red-600"><a href="">Shop</a></li>
-        <li class="p-4 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
+        <li class="p-4 hover:text-white hover:bg-red-600"><a href="/about">About</a></li>
+        <li class="p-4  hover:text-white hover:bg-red-600"><a href="/#sales">Sales</a></li>
+        <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
+        <li class="p-4 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
+
+        @if (session()->has('user'))
+            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li>
+        @endif
+
     </div>
-    <form action="#" id="searchBox" class="hidden w-[406px]">
-        <input type="text" class="border rounded w-full p-1" placeholder="Search...">
+    <form action="#" id="searchBox" class="hidden w-[406px] relative">
+        <input type="text" class="border  outline-none bg-gray-200  rounded w-full p-2 text-sm" placeholder="Search...">
+        <a href="#" id="search1" class="hover:text-red-600 absolute top-2 md:-right-6 right-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" fill="currentColor" class="bi bi-x-lg"
+                viewBox="0 0 16 16">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+        </a>
     </form>
-    <div class="gap-6 md:flex items-center hidden relative">
+    <div class="gap-9 md:flex items-center hidden relative">
 
         <a href="#" id="search" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
@@ -24,7 +36,14 @@
             </svg>
         </a>
 
-        <a href="/cartlist" class="hover:text-red-600">
+        <a href="/cartlist" class="hover:text-red-600 flex gap-2">
+            <p class="pt-[2px]">
+                @if (session()->has('cart_count'))
+                    {{ session('cart_count') }}
+                @else
+                    0
+                @endif
+            </p>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bag "
                 viewBox="0 0 16 16">
                 <path
@@ -39,13 +58,18 @@
                 <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
             </svg>
-            <h1 class="text-xl pt-0">{{ session('name') ? session('name') : ' Sign in' }}</h1>
+            @if(session()->has('user'))
+                <h1 class="text-xl pt-0">{{ session('user') ? session('user.name') : ' Sign in' }}</h1>
+                <a href="/auth/logout" class="rounded px-4 py-2 bg-red-600 text-white">Log out</a>
+            @endif
         </a>
 
     </div>
 
 
+    {{-- phone view --}}
     <div class="md:hidden p-4 flex gap-3">
+
 
         <a href="#" class="hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" fill="currentColor" class="bi bi-bag "
@@ -65,7 +89,8 @@
 
         <div class="absolute right-0 md:hidden ss:w-80 w-56 top-0 h-[100vh] bg-white z-30 ">
             <div class="flex flex-col flex-start gap-4 m-4 h-full relative">
-                <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600" id="loginBtn">
+                <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600"
+                    id="loginBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                         class="bi bi-person-circle " viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -100,13 +125,16 @@
                 <hr>
                 <div class="flex-col transition ease-in-out duration-500 font-md list-none">
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="/">Home</a></li>
-                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="#about">About</a></li>
+                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/about">About</a></li>
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
-                    <li class="py-3  hover:text-white hover:bg-red-600"><a href="">Shop</a></li>
-                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="">Contact</a></li>
+                    <li class="py-3  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
+                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
+                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li>
+
 
                     @if (session('name'))
-                        <li class="py-3 hover:text-white hover:bg-red-600 bg-red-700 text-center rounded text-white"><a href="/auth/logout">Log Out</a></li>
+                        <li class="py-3 hover:text-white hover:bg-red-600 bg-red-700 text-center rounded text-white"><a
+                                href="/auth/logout">Log Out</a></li>
                     @endif
                 </div>
 
@@ -132,6 +160,7 @@
     const btnClose = document.getElementById('btnClose');
     const menu = document.getElementById('menu');
     const search = document.getElementById('search');
+    const search1 = document.getElementById('search1');
     const searchBox = document.getElementById('searchBox');
     const loginBtn = document.getElementById('loginBtn');
     const menuLink = document.getElementById('menuLink');
@@ -145,7 +174,8 @@
         menu.classList.remove('hidden');
         btnClose.classList.remove('hidden');
         body.classList.add('overflow-hidden');
-        searchBox.classList.add('hidden');
+
+
     });
     btnClose.addEventListener('click', () => {
         menu.classList.add('hidden');
@@ -154,6 +184,14 @@
     })
     search.addEventListener('click', () => {
         menuLink.classList.toggle('md:hidden');
+        search.classList.toggle('hidden');
+        searchBox.style.width = "450px";
+        searchBox.classList.toggle('hidden');
+    })
+
+    search1.addEventListener('click', () => {
+        menuLink.classList.toggle('md:hidden');
+        search.classList.toggle('hidden');
         searchBox.classList.toggle('hidden');
     })
 </script>

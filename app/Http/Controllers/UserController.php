@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Redirect;
+
+use function GuzzleHttp\Promise\queue;
 
 class UserController extends Controller
 {
@@ -16,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('auth.signup'); 
+        return view('auth.signup');
     }
 
     /**
@@ -38,7 +42,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        
+
         $request->validate([
             'name' => 'required|min:4',
             'email' => 'required|min:8|email',
@@ -49,10 +53,12 @@ class UserController extends Controller
 
         User::create($input);
 
-        //get user authication
-        $request->session()->put('name',$request->name);
+        $user = User::where('email',$request['email'])->where('password',$request['password'])->first();
 
-        return redirect('/')->with('message','create user successfully');
+        //get user authication
+        $request->session()->put('user', $user);
+
+        return redirect('/')->with('message', 'create user successfully');
 
         //dd(1);  
     }
@@ -67,15 +73,14 @@ class UserController extends Controller
         ]);
 
         //check if email and password the same in table
-        $user = User::where('email',$input['email'])->where('password',$input['password'])->first();
+        $user = User::where('email', $input['email'])->where('password', $input['password'])->first();
 
-
-        if(!$user){
-            return back()->with('message','Sorry, User can\'t be found'); //if user already have return to login page
+        if (!$user) {
+            return back()->with('message', 'Sorry, User can\'t be found'); //if user already have return to login page
         }
-        
-        $request->session()->put('name',$user->name);
-        return redirect('/')->with('message','Log in successfully');;
+
+        $request->session()->put('user', $user);
+        return redirect('/')->with('message', 'Log in successfully');;
     }
     /**
      * Display the specified resource.
@@ -124,11 +129,67 @@ class UserController extends Controller
         //
     }
 
-    public function logout(){
+    public function logout()
+    {
 
         //remove all session
-        session()->flush();
+        session()->remove('user');
 
         return redirect()->to('/');
+    }
+
+    public function checkout(Request $request){
+        
+        $user = session('user');
+        if(!$user){
+            return redirect('/auth');
+        }
+        
+        //get all carts first
+        $cart_products = Cart::all();
+
+        //create new quantity to replace without old one in carts table
+        $quantity = $request['quantity'];
+
+        //order id
+        $order_id = fake()->randomNumber();
+        
+
+        foreach ($cart_products as $index => $cart) {
+
+            //replace old quantity with new quantity if quantiy have change
+            if($cart->quantity != (int)$quantity[$index]){
+                $cart->update(array('quantity'=>(int)$quantity[$index]));
+            }
+
+            Order::create([
+                'user_id' => session('user.id'),
+                'product_id' => $cart['product_id'],
+                'quantity' => $cart->quantity,
+                'order_id' => $order_id,
+                'total' => $cart->quantity * $cart->product->price
+            ]);
+
+        }
+
+         //remove all carts after checkout
+         Cart::query()->delete();
+            
+         //remove all cart_count session
+         session()->put('cart_count',0);
+         return redirect('/cartlist');
+        
+    }
+
+    public function myorders(){
+        if(!session('user')) return redirect('/');
+
+        // $orders = Order::latest()->paginate(2);
+        // $orders->setCollection($orders->groupBy('order_id'));
+
+
+        $orders = Order::latest()->where('user_id',session('user.id'))->get()->groupBy('order_id');
+
+        return view('myorders',compact('orders'));
     }
 }
