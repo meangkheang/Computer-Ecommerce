@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Models\Order;
+use App\Models\ProductPreview;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +68,35 @@ Route::get('/auth/logout', [UserController::class, 'logout']);
 Route::resource('/auth', UserController::class);
 
 //this is welcomepage
+
+
+//admin
+Route::get('/admin',function(){
+    return view('admin.addProducts');
+});
+Route::post('/admin',function(Request $request){
+
+    Product::create([
+        'img' => $request->img,
+        'name' => $request->name,
+        'description' => $request->description,
+        'price' => $request->price,
+        'brand'=> $request->brand,
+        'review' => $request->review,
+        'type' => $request->type,
+        'rate' => $request->rate,
+        'discount' => $request->discount
+    ]);
+    $product_id = Product::latest('id')->first()['id'];
+    
+    for ($i=0; $i < 3; $i++) { 
+        ProductPreview::create([
+            'product_id' => $product_id,
+            'product_side' => $request->product_side[$i]
+        ]);
+    }
+   
+
+    return redirect('/products');
+
+});

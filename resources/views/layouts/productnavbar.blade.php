@@ -36,6 +36,8 @@
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/headphone?brand=predictor" class="block">Predictor</a></li>
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/headphone?brand=msi" class="block">MSI</a></li>
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/headphone?brand=rog" class="block">Rog</a></li>
+                <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/headphone?brand=razor" class="block">Razor</a></li>
+
             </ul>
         </li>
         <li class="my-2 group relative"><a href=""

@@ -21,6 +21,7 @@
     @include('layouts.productnavbar')
     @yield('content')
     @include('layouts.footer')
+
 </div>
    
 
