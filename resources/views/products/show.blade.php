@@ -5,14 +5,14 @@
             <div class="xs:mb-6 cursor-pointer w-full p-3">
                 <a href="/products/{{ $product->type }}/{{ $product->id }}">
                     <img src="{{ $product->img }}"
-                        alt="" class="h-96 object-cover w-full " id="active_img">
+                        alt="" class="h-96 object-contain w-full " id="active_img">
 
                 </a>
                 <div class="mt-8 flex justify-around">
                     @foreach ($product->Product_preview as $img_preview)
                         <button id="preview_img" class="shadow-lg p-1 rounded lg:w-1/4"><img
                             src="{{ $img_preview->product_side }}"
-                            alt="" class="h-20 object-cover  w-full "></button>
+                            alt="" class="h-20 object-contain  w-full "></button>
                     @endforeach
                    
                 </div>

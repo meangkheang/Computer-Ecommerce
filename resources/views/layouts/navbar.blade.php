@@ -1,4 +1,4 @@
-<nav class="shadow-lg flex items-center w-full justify-between md:justify-around ">
+<nav class="flex items-center w-full justify-between md:justify-around ">
     <a href="/" class="p-4">
         <span class="sm:pl-4 text-xl md:p-4">C<span class="text-red-600">E</span>CM</span>
         {{-- <img src="" alt="" class="w-6 rounded"> --}}
@@ -12,12 +12,12 @@
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
 
         @if (session()->has('user'))
-            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li>
+            {{-- <li class="p-4 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li> --}}
         @endif
 
     </div>
-    <form action="#" id="searchBox" class="hidden w-[406px] relative">
-        <input type="text" class="border  outline-none bg-gray-200  rounded w-full p-2 text-sm" placeholder="Search...">
+    <form action="/products/all" id="searchBox" class="hidden w-[406px] relative" method="get">
+        <input type="text" class="border  outline-none bg-gray-200  rounded w-full p-2 text-sm" placeholder="Search..." name="search">
         <a href="#" id="search1" class="hover:text-red-600 absolute top-2 md:-right-6 right-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" fill="currentColor" class="bi bi-x-lg"
                 viewBox="0 0 16 16">
@@ -51,17 +51,20 @@
             </svg>
         </a>
 
-        <a href="{{ session('name') ? '/' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600">
+        <a href="{{ session('user') ? '/myaccount' : '/auth/' }}" class="flex gap-2 items-center hover:text-red-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                 class="bi bi-person-circle " viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                 <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
             </svg>
-            @if(session()->has('user'))
+              @if(session()->has('user'))
+                <h1 class="text-xl pt-0">{{ session('user') ? session('user.name') : ' Sign in' }}</h1>
+                @endif
+            {{-- @if(session()->has('user'))
                 <h1 class="text-xl pt-0">{{ session('user') ? session('user.name') : ' Sign in' }}</h1>
                 <a href="/auth/logout" class="rounded px-4 py-2 bg-red-600 text-white">Log out</a>
-            @endif
+            @endif --}}
         </a>
 
     </div>
@@ -109,7 +112,7 @@
                         </svg>
 
                     </a>
-                    <form action="#" class="w-full">
+                    <form action="/products" class="w-full">
                         <input type="text" class="border rounded p-1 w-full text-xs sm:text-base"
                             placeholder="search...">
                     </form>
@@ -129,7 +132,7 @@
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="#sales">Sales</a></li>
                     <li class="py-3  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
                     <li class="py-3 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
-                    <li class="py-3 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li>
+                    {{-- <li class="py-3 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li> --}}
 
 
                     @if (session('name'))

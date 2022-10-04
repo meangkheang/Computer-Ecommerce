@@ -17,7 +17,7 @@
             <div>
                 <label for="" class="mr-4">Product's Type</label>
                 <select  id="" name="type">
-                    <option value="asus">Laptop</option>
+                    <option value="laptop">Laptop</option>
                     <option value="mouse">Mouse</option>
                     <option value="keyboard">Keyboard</option>
                     <option value="speaker">Speaker</option>
@@ -30,6 +30,7 @@
                     <option value="asus">Asus</option>
                     <option value="dell">Dell</option>
                     <option value="predictor">Predictor</option>
+                    <option value="predictor">Logitech</option>
                     <option value="msi">MSI</option>
                     <option value="rog">Rog</option>
                     <option value="razer">Razer</option>

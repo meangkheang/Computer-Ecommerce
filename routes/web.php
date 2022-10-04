@@ -36,23 +36,12 @@ Route::get('/cartlist', [CartController::class,'index']);
 Route::get('/cartlist/delete/{id}', [CartController::class,'cartlist_remove']);
 Route::get('/checkout',[UserController::class,'checkout']);
 Route::get('/myorders',[UserController::class,'myorders']);
-
-
-// Route::get('/test',function(){
-
-//     $orders = Order::paginate(2);;
-
-//     return view('test',compact('orders'));
-// });
+Route::post('/products/filter',[ProductController::class,'sortBy']);
 
 
 
-// Route::get('/signup',function(){
-//     return view('auth.signup');
-// });
-// Route::get('/signin',function(){
-//     return view('auth.signin');
-// });
+//myaccount homepage
+Route::get('/myaccount',[UserController::class,'myaccount']);
 
 
 

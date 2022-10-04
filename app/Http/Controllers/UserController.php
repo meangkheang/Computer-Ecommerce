@@ -192,4 +192,11 @@ class UserController extends Controller
 
         return view('myorders',compact('orders'));
     }
+    public function myaccount(){
+        
+        if(!session()->has('user')){
+            return redirect('/');
+        }
+        return view('myaccount');
+    }
 }
