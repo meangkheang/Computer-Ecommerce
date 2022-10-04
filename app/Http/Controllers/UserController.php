@@ -131,4 +131,13 @@ class UserController extends Controller
 
         return redirect()->to('/');
     }
+
+    public function addToCart(Request $request){
+        //first get input all input from request
+        $id = $request->all()['id'];
+        
+        dd($id);
+
+        return redirect('/');
+    }
 }
