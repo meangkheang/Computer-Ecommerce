@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 @section('content')
     
-<div class="h-screen w-2/3 mx-auto mt-8 ">
+<div class="w-2/3 mx-auto mt-8 overflow-y h-screen">
 
-    <h1 class="pb-4 text-2xl text-red-600">Pending Orders</h1>
+    <h1 class="pb-4 text-2xl text-red-600 font-bold">Pending Orders ({{ count($orders) }})</h1>
 
 
     @forelse ($orders as $index=>$order)
@@ -23,10 +23,10 @@
                     {{-- {{ $order->products }} --}}
                     <div class="py-2 flex justify-between items-center text-sm">
                         <div class="flex gap-8">
-                            <img src="{{ $item->product->img }}" alt="" class="w-24 object-contain">
+                            <img src="{{ $item->product->img }}" alt="" class="md:w-[5rem] object-cover">
                             <div class="flex flex-col justify-around">
                                 <h1 class="text-bold text-md">{{ $item->product->name }}</h1>
-                                <p class="text-xs text-gray-500">Space Gray | 32 GB | 1 TB</p>
+                                <p class="text-xs text-gray-500">{{ $item->product->description }}</p>
                             </div>
                         </div>
                         <div>
@@ -35,7 +35,9 @@
                         </div>
                     </div>
                 @endforeach
-                    
+                
+                {{-- <h1 class="text-right font-xs">Total : ${{ session('total') }}</h1> --}}
+                
             </div>
         </div>
     @empty

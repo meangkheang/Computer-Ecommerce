@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Redirect;
+use Laravel\Ui\Presets\React;
 
 use function GuzzleHttp\Promise\queue;
 
@@ -139,7 +140,7 @@ class UserController extends Controller
     }
 
     public function checkout(Request $request){
-        
+
         $user = session('user');
         if(!$user){
             return redirect('/auth');
@@ -149,7 +150,7 @@ class UserController extends Controller
         $cart_products = Cart::all();
 
         //create new quantity to replace without old one in carts table
-        $quantity = $request['quantity'];
+        $quantity = session('quantity');
 
         //order id
         $order_id = fake()->randomNumber();
@@ -199,4 +200,18 @@ class UserController extends Controller
         }
         return view('myaccount');
     }
+
+    public function checkoutPayment(Request $request){
+
+        if(!session()->has('user')){
+            return redirect('/auth');
+        }
+
+        session()->put('quantity',$request->quantity);
+        session()->put('total',$request->total);
+
+
+        return view('checkout');
+    }
+
 }

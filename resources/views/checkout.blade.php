@@ -1,12 +1,19 @@
 @extends('layouts.layout')
 @section('content')
 
-<div class="h-[50vh]">
-    <h1>Check out</h1>
+<div class="h-[50vh] w-1/2 mx-auto">
+    <h1 class="text-center text-3xl font-bold pt-8">Check out Payment</h1>
 <!-- component -->
 <!-- Tailwind CSS Playground : https://play.tailwindcss.com/KbKtNzkOBy -->
 
-<form class="flex flex-wrap gap-3 w-full p-5">
+
+<form action="/checkout" class="flex flex-wrap gap-3 w-full p-5" id="form" method="post">
+   @csrf
+   {{-- hidden input to get value  --}}
+    <input type="hidden" value="{{ request()->total }}" name="total">
+    {{-- <input type="hidden" value="{{ request()->quantity }}" name="quantity[]"> --}}
+
+
     <label class="relative w-full flex flex-col">
       <span class="font-bold mb-3">Card number</span>
       <input class="rounded-md peer pl-12 pr-2 py-2 border-2 border-gray-200 placeholder-gray-300" type="text" name="card_number" placeholder="0000 0000 0000" />
@@ -39,6 +46,13 @@
       </svg>
     </label>
   </form>
+  <div class="w-full text-center mt-8">
+
+    <a onclick="document.getElementById('form').submit()" class="cursor-pointer inline-block bg-blue-600 text-white  py-2 rounded px-4">Procced Payment</a>
+
+  </div>
 </div>
+
+
 
 @endsection

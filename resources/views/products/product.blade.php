@@ -1,18 +1,30 @@
 @extends('layouts.layout')
 @section('content')
     {{-- sort by and result --}}
+
     <div class="w-full flex justify-between py-2 px-4 sm:text-base text-sm sm:px-8 sm:flex-row flex-col">
         <div class="">Showing 1-{{ count($products) }} out of {{ count($products) }}</div>
         <div class="flex items-center">
 
-
-            <form action="/products/filter?type={{ $products[0]->type }}&brand={{ $products[0]->brand }}" id="sortby" method="post">
+            <form action="/products/sortBy?type={{ count($products) > 0? $products[0]->type: '' }}" id="sortby" method="post">
                 @csrf
-                <select id="" class="border-2 px-3 mx-2" name="sortby" onchange="document.getElementById('sortby').submit()">
-                    <option value="Recommend" {{ $sortBy== 'Recommend'? 'selected' :'' }}>Recommend</option>
-                    <option value="Popular" {{ $sortBy == 'Popular' ? 'selected' :'' }}>Popular</option>
-                    <option value="Newest" {{ $sortBy == 'Newest' ? 'selected' :'' }}>Newest</option>
-                </select>
+                <input type="hidden" value="{{  count($products) ? $products[0]->type : '' }}" name="type">
+                <input type="hidden" value="{{ count($products) ? $products[0]->brand :'' }}" name="brand">
+
+                @if (isset($sortBy))
+                    <select id="" class="border-2 px-3 mx-2" name="sortby" onchange="document.getElementById('sortby').submit()">
+                        <option value="Recommend" {{ $sortBy== 'Recommend'? 'selected' :'' }}>Recommend</option>
+                        <option value="Popular" {{ $sortBy == 'Popular' ? 'selected' :'' }}>Popular</option>
+                        <option value="Newest" {{ $sortBy == 'Newest' ? 'selected' :'' }}>Newest</option>
+                    </select>
+                @else
+                    <select id="" class="border-2 px-3 mx-2" name="sortby" onchange="document.getElementById('sortby').submit()">
+                        <option value="Recommend" >Recommend</option>
+                        <option value="Popular" >Popular</option>
+                        <option value="Newest">Newest</option>
+                    </select>
+                @endif
+               
             </form>
             
         </div>

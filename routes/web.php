@@ -22,21 +22,23 @@ use App\Models\ProductPreview;
 Route::view('/','welcome2');
 Route::view('/contact','contact');
 Route::view('/about','about');
-Route::view('/products','products.home');
 Route::view('/checkout','checkout');
 
 
 
-
+Route::get('/products',[ProductController::class,'home']);
 Route::get('/products/{type}',[ProductController::class,'index']);
 Route::get('/products/{type}/{id}',[ProductController::class,'show']);
 Route::get('/addtocard/{id}',[CartController::class,'addtocard']);
 Route::get('/buynow/{id}',[CartController::class,'buynow']);
 Route::get('/cartlist', [CartController::class,'index']);
 Route::get('/cartlist/delete/{id}', [CartController::class,'cartlist_remove']);
-Route::get('/checkout',[UserController::class,'checkout']);
 Route::get('/myorders',[UserController::class,'myorders']);
-Route::post('/products/filter',[ProductController::class,'sortBy']);
+Route::get('/checkoutPayment',[UserController::class,'checkoutPayment']);
+Route::post('/checkout',[UserController::class,'checkout']);
+Route::post('/products/sortBy',[ProductController::class,'sortBy']);
+Route::post('/products/filter',[ProductController::class,'filter']);
+
 
 
 

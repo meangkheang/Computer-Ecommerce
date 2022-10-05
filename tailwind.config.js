@@ -33,13 +33,15 @@ module.exports = {
         extend: {
             keyframes: {
                 slowDrop: {
-                  '0%':{ transform: 'translate(50%,-30px)', },
+                  '0%':{ transform: 'translate(50%,-20px)', },
                   '50%':{ transform: 'translate(50%,5px)', opacity: 1},
-                  '100%': { opacity: 0 ,transform: 'translate(50%,10px)'},
+                  '80%':{ transform: 'translate(50%,20px)', opacity: 0.9},
+                  '90%':{ transform: 'translate(50%,35px)', opacity: 0.5},
+                  '100%': { opacity: 0 ,transform: 'translate(50%,45px)'},
                 }
               },
             animation: {
-                slowDrop: 'slowDrop 2s ease-out forwards',
+                slowDrop: 'slowDrop 800ms ease-out forwards',
             }
         },
     },
