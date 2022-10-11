@@ -38,10 +38,19 @@ module.exports = {
                   '80%':{ transform: 'translate(50%,20px)', opacity: 0.9},
                   '90%':{ transform: 'translate(50%,35px)', opacity: 0.5},
                   '100%': { opacity: 0 ,transform: 'translate(50%,45px)'},
-                }
+                },
+                moveup:{
+                    '0%': {transform: 'translate(0px,0px)'},
+                    '33%': {transform: 'translate(0px,-4rem)'},
+                    '66%': {transform: 'translate(0px,-5rem)'},
+                    '100%': {transform: 'translate(0px,-6rem)'}
+
+                }                
+
               },
             animation: {
                 slowDrop: 'slowDrop 800ms ease-out forwards',
+                moveup : 'moveup 1s ease-out forwards'
             }
         },
     },

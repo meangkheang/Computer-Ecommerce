@@ -20,15 +20,35 @@ class ProductController extends Controller
         //use for somewhere else view that require type
         session()->put('type',$type);
 
-        $brand = $request->brand;
-        $search = $request->search;
+        //dynamic brands depend on what type it is
+        $brands = Product::select('brand')->where('type',$type)->distinct()->get();
+        session()->put('brands',$brands);
+
+        $brand  = $request->brand;
+        $searchs = explode(' ',$request->search);
         $sortBy = "Recommend";
 
-        if($search){
 
-            $products =  Product::where('name','like','%'. $search. '%')
-                                ->orWhere('type','like','%'. $search. '%')
-                                ->get();
+        if($searchs[0] != ''){
+
+            $searchTerm =$request->search;
+            $reservedSymbols = ['-', '+', '<', '>', '@', '(', ')', '~'];
+            $searchTerm = str_replace($reservedSymbols, ' ', $searchTerm);
+
+            $searchValues = preg_split('/\s+/', $searchTerm, -1, PREG_SPLIT_NO_EMPTY);
+
+
+            $products = Product::where(function($q) use ($searchValues){
+                
+                foreach ($searchValues as $value) {
+                    $q->orWhere('name', 'like', "%{$value}%");
+                    $q->orWhere('brand', 'like', "%{$value}%");
+                    $q->orWhere('type', 'like', "%{$value}%");
+
+                }
+
+            })->get();
+
             return view('products.product',compact('products','sortBy'));
         }
         if($brand){
@@ -155,4 +175,5 @@ class ProductController extends Controller
 
         return redirect('/');
     }
+    
 }

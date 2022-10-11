@@ -1,6 +1,14 @@
-@extends('layouts.layout')
-@section('content')
-    <div class="h-[90%] mt-8">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('links.headerlinks',['title' => 'Products'])
+</head>
+<body>
+    @include('layouts.navbar')
+    @include('layouts.productnavbar')
+
+    <div class="pt-4">
         <div class="grid md:grid-cols-2 grid-cols-1  lg:w-2/3 gap-2 lg:mx-auto w-full h-full px-4">
             <div class="xs:mb-6 cursor-pointer w-full p-3">
                 <a href="/products/{{ $product->type }}/{{ $product->id }}">
@@ -14,7 +22,7 @@
                             src="{{ $img_preview->product_side }}"
                             alt="" class="h-20 object-contain  w-full "></button>
                     @endforeach
-                   
+                    
                 </div>
             </div>
             <div class="flex flex-col items-start p-3 gap-2 ">
@@ -69,14 +77,17 @@
                     </div>
                 <div class="flex gap-2 mt-4">
                         <button type="submit" class="border rounded p-2 hover:bg-red-600 hover:text-white ">Add to Cart</button>
+
                 </form>
+                    <a href="/whitelist/{{ $product->id }}" class="border rounded p-2 hover:bg-red-500 hover:text-white">Add to Whitelist</a>
                     <a href="/buynow/{{ $product->id }}" class="border rounded p-2 hover:bg-red-500 hover:text-white">Buy Now</a>
                 </div>
             </div>
 
         </div>
     </div>
-
+    @include('layouts.footer')
+    
     <script>
         let imgs = document.querySelectorAll('#preview_img');
         let active_img = document.getElementById('active_img');
@@ -89,13 +100,11 @@
                 active_img.src = imgs[i].children[0].src;
             });
         }
-       
-
-       
-    
     
     </script>
 
-@endsection
+</body>
+</html>
+
 
 

@@ -31,11 +31,11 @@
     </div>
     <div class="w-full flex">
         @include('layouts.sidefilter')
-        <div class="w-4/5 grid lg:grid-cols-4 gap-4 p-4 md:grid-cols-3 sm:grid-cols-2">
+        <div class="w-4/5 grid lg:grid-cols-4 gap-4 p-4 md:grid-cols-3 sm:grid-cols-2 relative">
 
             @forelse ($products as $product)
                 <div class="bg-white border rounded hover:scale-95 transition-all duration-200">
-                    <div class="xs:mb-6 cursor-pointer shrink-0 w-full ">
+                    <div class="xs:mb-6 cursor-pointer shrink-0 w-full peer">
                         <a href="/products/{{ $product->type }}/{{ $product->id }}">
                             <img src="{{ $product->img }}"
                                 alt="" class="rounded lg:h-96 h-40 object-contain w-full ">
@@ -58,11 +58,13 @@
                         </a>
 
                     </div>
+
+                
                 </div>
             @empty
                 <h1 class="text-2xl text-center ">Empty Here :)</h1>
             @endforelse
           
-        </div>
+    </div>
     </div>
 @endsection
