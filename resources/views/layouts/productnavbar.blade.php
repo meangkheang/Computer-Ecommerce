@@ -1,4 +1,4 @@
-<div class="w-full flex justify-center items-center border">
+<div class="w-full flex justify-center items-center border z-50 relative">
     <ul class="list-none lg:flex lg:gap-8 hidden align-center bg-white ">
         <li class="my-2 group relative"><a href="" class="hover:text-white hover:bg-red-600 px-4 py-2">Laptop</a>
             <ul class="gap-2 group-hover:block absolute hidden top-[31.5px] bg-white shadow-sm border w-48">
