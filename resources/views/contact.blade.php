@@ -7,7 +7,7 @@
     <div class="flex gap-8">
         <div class="w-1/2">
             <label for="">Your name</label><br>
-            <input type="text"  class="text-black w-full  w-full outline-none px-4 py-2 bg-gray-200 placeholder:text-lime-800" placeholder="Jackson"><br>
+            <input type="text"  class="text-black w-full outline-none px-4 py-2 bg-gray-200 placeholder:text-lime-800" placeholder="Jackson"><br>
         </div>
         
         <div class="w-1/2">

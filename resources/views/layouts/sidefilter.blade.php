@@ -6,52 +6,20 @@
         @csrf
 
         <div class="mt-2">BRAND
-            <div class="mt-2 py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="asus">
-                <label for="option1">Asus</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="dell">
-                <label for="option1">Dell</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="predator">
-                <label for="option1">Predator</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="msi">
-                <label for="option1">MSI</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="rog">
-                <label for="option1">Rog</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="razer">
-                <label for="option1">Razer</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="coolermaster">
-                <label for="option1">Cooler Master</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="beats">
-                <label for="option1">Beats</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="logitech">
-                <label for="option1">Logitech</label>
-            </div>
-            <div class="py-1 flex gap-3">
-                <input type="checkbox" id="option1" name="brand[]" value="jbl">
-                <label for="option1">JBL</label>
-            </div>
+
+            @foreach (session('brands') as $brand)
+                <div class="mt-2 py-1 flex gap-3">
+                    <input type="checkbox" id="option1" name="brand[]" value="{{ $brand->brand }}">
+                    <label for="option1">{{ $brand->brand }}</label>
+                </div>
+            @endforeach
+
         </div>
         <hr>
         <div class="mt-2">PRICE
             <div class="mt-2 py-1 flex gap-3">
                 <input type="checkbox" id="option1" name="price[]" value="<500">
-                <label for="option1"> -500 </label>
+                <label for="option1"> 500- </label>
             </div>
             <div class="py-1 flex gap-3">
                 <input type="checkbox" id="option1" name="price[]" value=">500">

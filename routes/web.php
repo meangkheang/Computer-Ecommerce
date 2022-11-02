@@ -1,13 +1,14 @@
 <?php
 
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\ProductPreview;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-use App\Models\Order;
-use App\Models\ProductPreview;
+use App\Http\Controllers\WhiteListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,9 @@ Route::view('/contact','contact');
 Route::view('/about','about');
 Route::view('/checkout','checkout');
 
-
-
+Route::get('/whitelist',[WhiteListController::class,'index']);
+Route::get('/whitelist/{id}',[WhitelistController::class,'addtowhitelist']);
+Route::get('/whitelist/delete/{id}',[WhitelistController::class,'removeWhiteListItem']);
 Route::get('/products',[ProductController::class,'home']);
 Route::get('/products/{type}',[ProductController::class,'index']);
 Route::get('/products/{type}/{id}',[ProductController::class,'show']);
@@ -60,6 +62,14 @@ Route::resource('/auth', UserController::class);
 
 //this is welcomepage
 
+Route::redirect('/admin-login','auth/signin');
+Route::get('/admin/users',function(){
+
+    $users =  \App\Models\User::all();
+
+    return view('admin.userhistory',compact('users'));
+
+})->name('admin.viewusers');
 
 //admin
 Route::get('/admin',function(){
