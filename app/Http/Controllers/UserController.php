@@ -63,15 +63,26 @@ class UserController extends Controller
 
         //dd(1);  
     }
+     
+    public function isAdmin(Request $request){ 
+        if($request->email == "admin@admin.com" && $request->password == 'secret')
+        {
+            return 1;
+        }
+        return 0;
+    }
 
     public function store2(Request $request)
     {
         $input = $request->all();
 
         $validated = $request->validate([
-            'email' => 'required|min:8',
-            'password' => 'required|min:8',
+            'email' => 'required|min:6',
+            'password' => 'required|min:6',
         ]);
+
+        //if user_log_in is admin redirect to this route
+        if($this->isAdmin($request)) return redirect()->route('admin.viewusers');
 
         //check if email and password the same in table
         $user = User::where('email', $input['email'])->where('password', $input['password'])->first();

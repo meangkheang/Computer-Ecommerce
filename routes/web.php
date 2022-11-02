@@ -62,6 +62,14 @@ Route::resource('/auth', UserController::class);
 
 //this is welcomepage
 
+Route::redirect('/admin-login','auth/signin');
+Route::get('/admin/users',function(){
+
+    $users =  \App\Models\User::all();
+
+    return view('admin.userhistory',compact('users'));
+
+})->name('admin.viewusers');
 
 //admin
 Route::get('/admin',function(){
