@@ -46,15 +46,15 @@ class UserController extends Controller
 
         $request->validate([
             'name' => 'required|min:4',
-            'email' => 'required|min:8|email',
-            'password' => 'required|min:8|required_with:confirm_password|same:confirm_password',
-            'confirm_password' => 'required|min:8'
+            'email' => 'required|min:6|email',
+            'password' => 'required|min:6|required_with:confirm_password|same:confirm_password',
+            'confirm_password' => 'required|min:6'
         ]);
 
 
         User::create($input);
 
-        $user = User::where('email',$request['email'])->where('password',$request['password'])->first();
+        $user = User::where('email', $request['email'])->where('password', $request['password'])->first();
 
         //get user authication
         $request->session()->put('user', $user);
@@ -63,10 +63,10 @@ class UserController extends Controller
 
         //dd(1);  
     }
-     
-    public function isAdmin(Request $request){ 
-        if($request->email == "admin@admin.com" && $request->password == 'secret')
-        {
+
+    public function isAdmin(Request $request)
+    {
+        if ($request->email == "admin@admin.com" && $request->password == 'secret') {
             return 1;
         }
         return 0;
@@ -81,8 +81,6 @@ class UserController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        //if user_log_in is admin redirect to this route
-        if($this->isAdmin($request)) return redirect()->route('admin.viewusers');
 
         //check if email and password the same in table
         $user = User::where('email', $input['email'])->where('password', $input['password'])->first();
@@ -150,13 +148,14 @@ class UserController extends Controller
         return redirect()->to('/');
     }
 
-    public function checkout(Request $request){
+    public function checkout(Request $request)
+    {
 
         $user = session('user');
-        if(!$user){
+        if (!$user) {
             return redirect('/auth');
         }
-        
+
         //get all carts first
         $cart_products = Cart::all();
 
@@ -165,13 +164,13 @@ class UserController extends Controller
 
         //order id
         $order_id = fake()->randomNumber();
-        
+
 
         foreach ($cart_products as $index => $cart) {
 
             //replace old quantity with new quantity if quantiy have change
-            if($cart->quantity != (int)$quantity[$index]){
-                $cart->update(array('quantity'=>(int)$quantity[$index]));
+            if ($cart->quantity != (int)$quantity[$index]) {
+                $cart->update(array('quantity' => (int)$quantity[$index]));
             }
 
             Order::create([
@@ -181,48 +180,48 @@ class UserController extends Controller
                 'order_id' => $order_id,
                 'total' => $cart->quantity * $cart->product->price
             ]);
-
         }
 
-         //remove all carts after checkout
-         Cart::query()->delete();
-            
-         //remove all cart_count session
-         session()->put('cart_count',0);
-         return redirect('/cartlist');
-        
+        //remove all carts after checkout
+        Cart::query()->delete();
+
+        //remove all cart_count session
+        session()->put('cart_count', 0);
+        return redirect('/cartlist');
     }
 
-    public function myorders(){
-        if(!session('user')) return redirect('/');
+    public function myorders()
+    {
+        if (!session('user')) return redirect('/');
 
         // $orders = Order::latest()->paginate(2);
         // $orders->setCollection($orders->groupBy('order_id'));
 
 
-        $orders = Order::latest()->where('user_id',session('user.id'))->get()->groupBy('order_id');
+        $orders = Order::latest()->where('user_id', session('user.id'))->get()->groupBy('order_id');
 
-        return view('myorders',compact('orders'));
+        return view('myorders', compact('orders'));
     }
-    public function myaccount(){
-        
-        if(!session()->has('user')){
+    public function myaccount()
+    {
+
+        if (!session()->has('user')) {
             return redirect('/');
         }
         return view('myaccount');
     }
 
-    public function checkoutPayment(Request $request){
+    public function checkoutPayment(Request $request)
+    {
 
-        if(!session()->has('user')){
+        if (!session()->has('user')) {
             return redirect('/auth');
         }
 
-        session()->put('quantity',$request->quantity);
-        session()->put('total',$request->total);
+        session()->put('quantity', $request->quantity);
+        session()->put('total', $request->total);
 
 
         return view('checkout');
     }
-
 }

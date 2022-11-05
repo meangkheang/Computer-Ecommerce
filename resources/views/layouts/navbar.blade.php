@@ -11,13 +11,24 @@
         <li class="p-4  hover:text-white hover:bg-red-600"><a href="/products">Shop</a></li>
         <li class="p-4 hover:text-white hover:bg-red-600"><a href="/contact">Contact</a></li>
 
+
+        @if (session()->has('user') &&
+            (session('user.email') == 'admin@admin.com' && session('user.password') == 'secret'))
+            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/admin/users">Orders</a></li>
+            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/admin">Add Product</a></li>
+        @endif
+
+
+
+
         @if (session()->has('user'))
             {{-- <li class="p-4 hover:text-white hover:bg-red-600"><a href="/myorders">My Order</a></li> --}}
         @endif
 
     </div>
     <form action="/products/all" id="searchBox" class="hidden w-[406px] relative" method="get">
-        <input type="text" class="border  outline-none bg-gray-200  rounded w-full p-2 text-sm" placeholder="Search..." name="search">
+        <input type="text" class="border  outline-none bg-gray-200  rounded w-full p-2 text-sm"
+            placeholder="Search..." name="search">
         <a href="#" id="search1" class="hover:text-red-600 absolute top-2 md:-right-6 right-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" fill="currentColor" class="bi bi-x-lg"
                 viewBox="0 0 16 16">
@@ -43,12 +54,15 @@
                     0
                 @endif
             </p>
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
-                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-                <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+                <path
+                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+                <path
+                    d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
+            </svg>
         </a>
-       
+
         <a href="/cartlist" class="hover:text-red-600 flex gap-2">
             <p class="pt-[2px]">
                 @if (session()->has('cart_count'))
@@ -71,10 +85,10 @@
                 <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
             </svg>
-              @if(session()->has('user'))
+            @if (session()->has('user'))
                 <h1 class="text-xl pt-0">{{ session('user') ? session('user.name') : ' Sign in' }}</h1>
-                @endif
-            {{-- @if(session()->has('user'))
+            @endif
+            {{-- @if (session()->has('user'))
                 <h1 class="text-xl pt-0">{{ session('user') ? session('user.name') : ' Sign in' }}</h1>
                 <a href="/auth/logout" class="rounded px-4 py-2 bg-red-600 text-white">Log out</a>
             @endif --}}
