@@ -47,6 +47,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|min:4',
             'email' => 'required|min:6|email',
+            'phone_number' => 'required|min:12',
             'password' => 'required|min:6|required_with:confirm_password|same:confirm_password',
             'confirm_password' => 'required|min:6'
         ]);
@@ -178,6 +179,7 @@ class UserController extends Controller
                 'product_id' => $cart['product_id'],
                 'quantity' => $cart->quantity,
                 'order_id' => $order_id,
+                'status' => 0,
                 'total' => $cart->quantity * $cart->product->price
             ]);
         }
@@ -188,6 +190,12 @@ class UserController extends Controller
         //remove all cart_count session
         session()->put('cart_count', 0);
         return redirect('/cartlist');
+    }
+
+    public function allUser()
+    {
+        $allUser = User::all();
+        return view('admin.users', ['allUser' => $allUser]);
     }
 
     public function myorders()

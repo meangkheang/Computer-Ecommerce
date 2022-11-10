@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
     <div class="mx-auto w-2/3 mt-4 h-[100vh]">
-        <h1 class="text-2xl font-bold text-center">Add Products</h1>
+        <h1 class="text-2xl font-bold text-center">Edit Products</h1>
 
         <form action="/admin" method="post" class="mt-8 w-1/2 mx-auto flex flex-col gap-3">
             @csrf
@@ -49,8 +49,11 @@
                 placeholder="Product's Review" name="review">
             <input class="w-full text-sm rounded px-3 py-2 outline-none  border-blue-400 border-2" type="text"
                 placeholder="Product's Rate: ex: 0 to 5 only" name="rate">
+            <div class="flex gap-3">
+                <button type="submit" class="px-4 py-2 bg-green-400 hover:bg-green-500 rounded">Update Product</button>
+                <a href="" class="px-4 py-2 bg-red-500 hover:bg-red-600 rounded">Delete Product</a>
+            </div>
 
-            <button type="submit" class="px-4 py-2 bg-indigo-400 rounded">Add Product</button>
         </form>
     </div>
 @endsection

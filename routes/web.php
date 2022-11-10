@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductPreview;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WhiteListController;
@@ -64,22 +65,24 @@ Route::resource('/auth', UserController::class);
 //this is welcomepage
 
 Route::redirect('/admin-login', 'auth/signin');
-Route::get('/admin/users', function () {
 
-    if (!session()->has('user')) return redirect('/');
-    if (session()->has('user')) {
-
-        if (session('user.email') != 'admin@admin.com' && session('user.password') != "secret") {
-            return redirect('/');
-        }
-    }
-
-    $users =  \App\Models\User::all();
-
-    return view('admin.userhistory', compact('users'));
-})->name('admin.viewusers');
 
 //admin
+Route::get('/admin/orders', [OrderController::class, 'orderHistory']);
+Route::get('/admin/dashboard', function () {
+    if (session('user') != null) {
+        if (session('user')->name != "Admin") {
+            return redirect('/');
+        } else
+            return view('admin.dashboard');
+    }
+    return redirect('/');
+});
+Route::get('/admin/edit', function () {
+    return view('admin.edit');
+});
+Route::get('/admin/allusers', [UserController::class, 'allUser']);
+Route::get('/admin/pending', [OrderController::class, 'pending']);
 Route::get('/admin', function () {
     return view('admin.addProducts');
 });

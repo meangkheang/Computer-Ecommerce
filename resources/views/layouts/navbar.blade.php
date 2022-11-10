@@ -14,8 +14,7 @@
 
         @if (session()->has('user') &&
             (session('user.email') == 'admin@admin.com' && session('user.password') == 'secret'))
-            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/admin/users">Orders</a></li>
-            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/admin">Add Product</a></li>
+            <li class="p-4 hover:text-white hover:bg-red-600"><a href="/admin/dashboard">Manage</a></li>
         @endif
 
 

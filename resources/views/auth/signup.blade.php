@@ -29,6 +29,12 @@
                 <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="name"
                     placeholder="Full Name" />
 
+                @error('phone_number')
+                    <p class="text-red-500 font-light text-sm"> {{ $message }} </p>
+                @enderror
+                <input type="text" class="block border border-grey-light w-full p-3 rounded mb-4" name="phone_number"
+                    placeholder="Phone Number" />
+
                 @error('email')
                     <p class="text-red-500 font-light text-sm"> {{ $message }} </p>
                 @enderror
