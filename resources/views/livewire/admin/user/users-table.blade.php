@@ -1,5 +1,3 @@
-@extends('layouts.layout')
-@section('content')
     <div class="container mx-auto px-4 sm:px-8">
         <div class="py-8">
             <div>
@@ -47,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($allUser as $item)
+                            @forelse ($users as $item)
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
@@ -91,4 +89,4 @@
             </div>
         </div>
     </div>
-@endsection
+

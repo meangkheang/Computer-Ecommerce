@@ -74,7 +74,7 @@ Route::get('/admin/dashboard', [OrderController::class,'dashboard']);
 Route::get('/admin/edit', function () {
     return view('admin.edit');
 });
-Route::get('/admin/allusers', [AdminController::class, 'users']);
+Route::get('/admin/allusers', [AdminController::class, 'users'])->middleware('isAdmin');
 Route::get('/admin/pending', [AdminController::class, 'pending']);
 Route::get('/admin', function () {
     return view('admin.addProducts');

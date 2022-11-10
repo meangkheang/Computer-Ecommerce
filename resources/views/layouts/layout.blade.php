@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('links.headerlinks')
-
 <body >
 
 <div class="w-full">
@@ -13,7 +12,6 @@
 
 </div>
    
-
     @livewireScripts
 </body>
 <script>

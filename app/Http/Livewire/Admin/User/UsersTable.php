@@ -7,25 +7,30 @@ use Livewire\Component;
 
 class UsersTable extends Component
 {
-    public $allUser;
+    public $users ;
+    public $test ;
+
     public $search = '';
-    
-
  
-    public function updatedSearch()
-    {
-        $this->allUser = User::where('name','like','%'. $this->search . '%')->get();
 
-        dd($this->allUser);
+    public function updated($key,$value)
+    {
+       
+    }
+
+    public function updatedSearch($value)
+    {
+        $this->users = $this->list_of_users()->where('name','like','%'. $value . '%')->get();
     }
 
     public function mount()
     {
-        $this->allUser = $this->list_of_users();
+        $this->users = $this->list_of_users()->get();
     }
 
     public function list_of_users(){
-        return User::where('name' ,'!=','admin')->where('password','!=','secret')->get();
+
+        return User::where('name' ,'!=','admin')->where('password','!=','secret');
 
     }
 

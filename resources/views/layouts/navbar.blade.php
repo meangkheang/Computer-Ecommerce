@@ -17,7 +17,7 @@
             <li class="p-4 hover:text-white hover:bg-red-600"><a href="/admin/dashboard">Manage</a></li>
         @endif
 
-
+        
 
 
         @if (session()->has('user'))
