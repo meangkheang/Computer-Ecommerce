@@ -5,6 +5,7 @@
 <body >
 
 <div class="w-full">
+    
     @include('layouts.navbar')
     @include('layouts.productnavbar')
     @yield('content')
@@ -13,7 +14,7 @@
 </div>
    
 
-
+    @livewireScripts
 </body>
 <script>
     const sliders = document.querySelector("#slider");

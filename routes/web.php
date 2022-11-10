@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -69,20 +70,12 @@ Route::redirect('/admin-login', 'auth/signin');
 
 //admin
 Route::get('/admin/orders', [OrderController::class, 'orderHistory']);
-Route::get('/admin/dashboard', function () {
-    if (session('user') != null) {
-        if (session('user')->name != "Admin") {
-            return redirect('/');
-        } else
-            return view('admin.dashboard');
-    }
-    return redirect('/');
-});
+Route::get('/admin/dashboard', [OrderController::class,'dashboard']);
 Route::get('/admin/edit', function () {
     return view('admin.edit');
 });
-Route::get('/admin/allusers', [UserController::class, 'allUser']);
-Route::get('/admin/pending', [OrderController::class, 'pending']);
+Route::get('/admin/allusers', [AdminController::class, 'users']);
+Route::get('/admin/pending', [AdminController::class, 'pending']);
 Route::get('/admin', function () {
     return view('admin.addProducts');
 });
