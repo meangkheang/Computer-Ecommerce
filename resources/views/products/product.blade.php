@@ -37,7 +37,7 @@
                 <div class="bg-white border rounded hover:scale-95 transition-all duration-200">
                     <div class="xs:mb-6 cursor-pointer shrink-0 w-full peer">
                         <a href="/products/{{ $product->type }}/{{ $product->id }}">
-                            <img src="{{ $product->img }}"
+                            <img src="{{ asset('images/products/' .$product->img)}}"
                                 alt="" class="rounded lg:h-96 h-40 object-contain w-full ">
                             <div class="flex flex-col justify-between items-start">
                                 <h1 class="text-center mt-4 text-md px-4">{{ $product->name }}</h1>

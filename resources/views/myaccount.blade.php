@@ -6,7 +6,7 @@
     <div class="flex justify-between">
 
         @if(session()->has('user'))
-            @if(session('user.name') != 'admin' && session('user.password') != 'password')
+            @if(session('user.email') != 'admin@admin.com' && session('user.password') != 'password')
             <a href="/myorders" class="rounded px-4 py-2 bg-blue-600 text-white">Order History</a>
                 
             @endif

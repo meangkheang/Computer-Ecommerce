@@ -4,11 +4,11 @@
 
 <body >
 
+@include('layouts.admin.navbar')
 <div class="w-full">
     @yield('content')
-
 </div>
 
-
+@livewireScripts
 </body>
 </html>

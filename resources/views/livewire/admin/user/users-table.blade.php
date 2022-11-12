@@ -12,13 +12,17 @@
                             </path>
                         </svg>
                     </span>
-
                     <input placeholder="Search" 
-                        class="appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" wire:model="search" />
+                        class="appearance-none rounded border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" wire:model.debounce.500ms="search" />
                 </div>
             </div>
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                    @if(session()->has('message'))
+                    <div class="w-full bg-green-400 px-4 py-4  text-white text-sm">
+                        {{session('message')}}
+                    </div>
+                     @endif
                     <table class="min-w-full leading-normal">
                         <thead>
                             <tr>
@@ -42,11 +46,17 @@
                                     class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                     Email
                                 </th>
+                                <th
+                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
+                           
                             @forelse ($users as $item)
                                 <tr>
+                                  
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 w-10 h-10">
@@ -78,15 +88,27 @@
                                             {{ $item->email }}
                                         </p>
                                     </td>
+
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <div>
+                                            <a href="#" class="px-4 py-2 rounded hover:bg-green-800 bg-green-600 text-white" wire:click="view_user({{ $item->id }})">View</a>
+                                            <a href="#" class="px-4 py-2 rounded hover:bg-green-800 bg-blue-600 text-white" wire:click="update_user({{ $item->id }})">Edit</a>
+                                            <a href="#" class="px-4 py-2 rounded hover:bg-green-800 bg-red-600 text-white" wire:click="destroy_user({{ $item->id }})">Delete</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @empty
-                                No Users
+                                <td class="px-5 font-bold py-5 border-b border-gray-200 bg-white text-sm text-center" colspan="7">
+                                    No Users
+                                </td>
                             @endforelse
-
                         </tbody>
                     </table>
+                   
                 </div>
             </div>
         </div>
+       
     </div>
 
+  

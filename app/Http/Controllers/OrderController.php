@@ -11,15 +11,21 @@ class OrderController extends Controller
 {
     public function orderHistory()
     {
-        $users = User::where('email','!=','admin@admin.com')->where('password','!=','secret')->get();
-
+        $users = User::whereHas('orders',function($query){
+            $query->where('status',1);
+        })
+        ->where('email','!=','admin@admin.com')->where('password','!=','secret')
+        ->get();
+     
 
         return view('admin.userhistory',compact('users'));
     }
 
     public function pending()
     {
-        $pending = User::where('id', '!=', '1')->get();
+        $pending = User::where('email','!=','admin@admin.com')->where('password','!=','secret')->get();
+        
+
         return view('admin.pendingOrder', ['pending' => $pending]);
     }
 

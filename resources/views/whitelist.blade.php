@@ -14,7 +14,7 @@
 
         <div class="flex items-start justify-between mt-4 ">
             <div class="flex gap-8 w-full relative justify-evenly items-center">
-                <img src="{{ $item->product->img }}"
+                <img src="{{ asset('images/products/' .$item->product->img ) }}"
                     alt="" class="w-[8rem] md:h-[6rem] md:w-[6rem] h-[6rem] rounded-sm object-contain">
                 <div class="flex flex-col items-start justify-between h-full">
                     <div >

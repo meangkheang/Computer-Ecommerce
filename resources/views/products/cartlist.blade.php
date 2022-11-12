@@ -26,10 +26,11 @@
             <form action="/checkoutPayment" id="quantity_form">
             <input type="hidden" name="total" id="total">
             @forelse ($cart_projects as $item)
+            
             <div class="flex items-start justify-between">
                 <div class="flex gap-8 w-[50%]">
-                    <img src="{{ $item->product->img }}"
-                        alt="" class="w-[30%] md:w-[5rem] rounded-sm object-contain">
+                    <img src="{{ asset('images/products/' . $item->product->img) }}"
+                        alt="{{ asset('images/products/' .$item->product->img ) }}" class="w-[30%] md:w-[5rem] rounded-sm object-contain">
                     <div>
                         <div class="flex flex-col items-start justify-between h-full">
                             <div>

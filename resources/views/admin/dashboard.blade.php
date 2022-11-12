@@ -6,14 +6,14 @@
         </div>
         <div class="grid md:grid-cols-3 grid-cols-2 gap-1 md:gap-4 md:my-8 my-4 text-center">
             <div class="flex flex-col items-center p-8">
-                <a href="/admin " class="group">
+                <a href="{{ route('admin.products.add') }}" class="group">
                     <img src="{{ asset('images/asset/box.png') }}" alt=""
                         class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
                     <h1 class="text-lg">Add Product</h1>
                 </a>
             </div>
             <div class="flex flex-col items-center p-8">
-                <a href="/admin/edit " class="group">
+                <a href="/admin/products " class="group">
                     <img src="{{ asset('images/asset/box.png') }}" alt=""
                         class="rounded w-48 object-cover group-hover:scale-95 transition-all duration-200 delay-75 ">
                     <h1 class="text-lg">Edit Product</h1>

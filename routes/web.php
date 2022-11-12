@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AllUserController;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -69,38 +70,35 @@ Route::redirect('/admin-login', 'auth/signin');
 
 
 //admin
-Route::get('/admin/orders', [OrderController::class, 'orderHistory']);
-Route::get('/admin/dashboard', [OrderController::class,'dashboard']);
-Route::get('/admin/edit', function () {
-    return view('admin.edit');
+
+Route::group(['prefix' => 'admin','middleware' => 'isAdmin','as' => 'admin.'],function (){
+
+    Route::get('/products/add', [AdminController::class,'add_product'])->name('products.add');
+    Route::get('/products/destroy/{id}', [AdminController::class,'destroy'])->name('products.destroy');
+    Route::post('/products/remove/{id}', [AdminController::class,'remove'])->name('products.remove');
+
+
+    Route::get('/orders', [OrderController::class, 'orderHistory']);
+    Route::get('/dashboard', [OrderController::class,'dashboard']);
+    Route::get('/products', [AdminController::class,'index']);
+    Route::get('/allusers', [AdminController::class, 'users'])->name('allusers');
+    Route::get('/pending', [AdminController::class, 'pending']);
+    Route::get('/pending/{id}', [AdminController::class, 'accept_pending'])->name('accept_pending');
+    Route::get('/products/{id}', [AdminController::class,'show'])->name('products.show');
+
+   
+    
+    //admin view user
+    Route::group(['prefix'=>'allusers','as' => 'allusers.'],function (){
+        
+        Route::get('/{id}',[AllUserController::class,'show'])->name('show');
+        Route::get('/edit/{id}',[AllUserController::class,'edit'])->name('edit');
+        Route::get('/destory/{id}',[AllUserController::class,'destroy'])->name('destroy');
+        Route::post('/edit/{id}',[AllUserController::class,'update'])->name('update');
+        Route::post('/delete/{id}',[AllUserController::class,'remove'])->name('remove');
+
+    });
 });
-Route::get('/admin/allusers', [AdminController::class, 'users'])->middleware('isAdmin');
-Route::get('/admin/pending', [AdminController::class, 'pending']);
-Route::get('/admin', function () {
-    return view('admin.addProducts');
-});
-Route::post('/admin', function (Request $request) {
-
-    Product::create([
-        'img' => $request->img,
-        'name' => $request->name,
-        'description' => $request->description,
-        'price' => $request->price,
-        'brand' => $request->brand,
-        'review' => $request->review,
-        'type' => $request->type,
-        'rate' => $request->rate,
-        'discount' => $request->discount
-    ]);
-    $product_id = Product::latest('id')->first()['id'];
-
-    for ($i = 0; $i < 3; $i++) {
-        ProductPreview::create([
-            'product_id' => $product_id,
-            'product_side' => $request->product_side[$i]
-        ]);
-    }
 
 
-    return redirect('/products');
-});
+

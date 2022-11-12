@@ -19,11 +19,13 @@
                     </div>
                     <div id="content" class="hidden px-4 border-2 mt-2">
 
+                       
                         @forelse ($user->orders as $order)
+                         
                             {{-- {{ $order->products }} --}}
                             <div class="py-2 flex justify-between items-center text-sm">
                                 <div class="flex gap-4 w-3/4">
-                                    <img src="{{ $order->product->img }}" alt="" class="md:w-[5rem] object-cover">
+                                    <img src="{{ asset('images/products/' .$order->product->img) }}" alt="" class="md:w-[5rem] object-cover">
                                     <div class="flex flex-col justify-around">
                                         <h1 class="text-bold text-md">{{ $order->product->name }}</h1>
                                         <p class="text-xs text-gray-500">{{ $order->product->description }}</p>

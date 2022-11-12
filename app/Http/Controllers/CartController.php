@@ -15,7 +15,7 @@ class CartController extends Controller
 
         Cart::find($id)->delete();
 
-        session()->flush();
+        // session()->flush();
         session()->put('cart_count', Cart::count());
 
         return back();
@@ -35,7 +35,7 @@ class CartController extends Controller
     {
 
         $check_product = Cart::where('product_id', $id)->first();
-
+        if($check_product) return redirect('/cartlist');
         //create temporary
         Cart::create([
             'product_id' => $id,

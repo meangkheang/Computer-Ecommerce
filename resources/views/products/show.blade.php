@@ -13,14 +13,15 @@
         <div class="grid md:grid-cols-2 grid-cols-1  lg:w-2/3 gap-2 lg:mx-auto w-full h-full px-4">
             <div class="xs:mb-6 cursor-pointer w-full p-3">
                 <a href="/products/{{ $product->type }}/{{ $product->id }}">
-                    <img src="{{ $product->img }}" alt="" class="h-96 object-contain w-full " id="active_img">
+                    <img src="{{ asset('images/products/' .$product->img)}}" alt="" class="h-96 object-contain w-full " id="active_img">
 
                 </a>
                 <div class="mt-8 flex justify-around">
                     @foreach ($product->Product_preview as $img_preview)
                         <button id="preview_img" class="shadow-lg p-1 rounded lg:w-1/4"><img
-                                src="{{ $img_preview->product_side }}" alt=""
+                                src="{{ asset('images/products/' . $img_preview->product_side) }}" alt=""
                                 class="h-20 object-contain  w-full "></button>
+
                     @endforeach
 
                 </div>
