@@ -4,7 +4,7 @@
             <ul class="gap-2 group-hover:block absolute hidden top-[31.5px] bg-white shadow-sm border w-48">
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/laptop?brand=asus" class="block">Asus</a></li>
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/laptop?brand=dell" class="block">Dell</a></li>
-                <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/laptop?brand=predictor" class="block">Predator</a></li>
+                <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/laptop?brand=predator" class="block">Predator</a></li>
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/laptop?brand=msi" class="block">MSI</a></li>
                 <li class="hover:text-white hover:bg-red-600 p-2"><a href="/products/laptop?brand=razer" class="block">Razer</a></li>
 
